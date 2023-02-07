@@ -1,3 +1,5 @@
+/* Global Styles */
+
 :root {
   --grey: #282a3a;
   --red: #f86279;
@@ -13,4 +15,44 @@
 body {
   background-color: var(--grey);
   color: white;
+  font-family: "Source Code Pro", sans-serif;
 }
+
+/* Header */
+
+header {
+  text-align: center;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.logo a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+}
+
+.menu li a:hover {
+  border-bottom: 1px solid white;
+}
+
+
+/* Main Homepage */
+
+
+
+/* Footer */
