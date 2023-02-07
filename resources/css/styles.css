@@ -1,0 +1,16 @@
+:root {
+  --grey: #282a3a;
+  --red: #f86279;
+  --green: #9aceb9;
+}
+
+. {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--grey);
+  color: white;
+}
