@@ -54,11 +54,13 @@ em {
   line-height: 4rem;
   font-weight: 500;
   box-shadow: 0 0 1rem var(--yellow);
+  transition-duration: 500ms;
 }
 
 .button:hover {
   background-color: var(--yellow);
   box-shadow: 0 0 1rem var(--yellow);
+  transition-duration: 500ms;
 }
 
 @media screen and (max-width: 480px) {
