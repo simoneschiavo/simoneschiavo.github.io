@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+/* Global Styles */
+
+:root {
+  --grey: #282a3a;
+  --red: #f86279;
+  --lightgreen: #9aceb9;
+  --white: #e8f0f0;
+  --yellow: #ffd76d;
+  --orange: #ff9b5e;
+  --green: #b9d560;
+  --violet: #c39ac9;
+  --lightgrey: #a8aeb3;
+}
+
+. {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0 auto;
+  width: 40rem;
+}
+
+body {
+  background-color: var(--grey);
+  color: var(--white);
+  font-family: "Source Code Pro", sans-serif;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+em {
+  color: var(--lightgreen)
+}
+
+.code {
+  color: var(--red)
+}
+
+.button {
+  color: var(--grey);
+  text-decoration: none;
+  background-color: var(--white);
+  padding: 1rem 1.5rem;
+  line-height: 4rem;
+  font-weight: 500;
+  box-shadow: 0 0 1rem var(--yellow);
+  transition-duration: 500ms;
+}
+
+.button:hover {
+  background-color: var(--yellow);
+  box-shadow: 0 0 1rem var(--yellow);
+  transition-duration: 500ms;
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    width: 20.4375rem;
+  }
+}
+
+
+// Define defaults for each variable.
+
+$text-color:       var(--white) !default;
+$background-color: var(--grey) !default;
+$brand-color:      #2a7ae2 !default;
+
+$table-text-align: left !default;
+
+// Width of the content area
+$content-width:    800px !default;
+
+$on-palm:          600px !default;
+$on-laptop:        800px !default;
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding-right: $spacing-unit / 2;
+//     padding-left: $spacing-unit / 2;
+//   }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+
+// Import partials.
+@import
+  "minima/base",
+  "minima/layout",
+  "minima/syntax-highlighting"
+;
