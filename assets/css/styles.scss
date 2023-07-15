@@ -67,6 +67,30 @@ em {
   transition-duration: 500ms;
 }
 
+a {
+  color: var(--yellow);
+  text-decoration: none;
+  transition: 2s background-color linear;
+
+  &:visited {
+    color: darken($brand-color, 15%);
+  }
+
+  &:hover {
+    color: var(--white);
+    text-decoration: none;
+    background-color: var(--yellow);
+  }
+
+  .social-media-list &:hover {
+    text-decoration: none;
+
+    .username {
+      text-decoration: underline;
+    }
+  }
+}
+
 @media screen and (max-width: 480px) {
   html {
     width: 20.4375rem;
