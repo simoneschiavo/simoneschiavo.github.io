@@ -1,0 +1,151 @@
+/* Global Styles */
+
+:root {
+  --grey: #282a3a;
+  --red: #f86279;
+  --lightgreen: #9aceb9;
+  --white: #e8f0f0;
+  --yellow: #ffd76d;
+  --orange: #ff9b5e;
+  --green: #b9d560;
+  --violet: #c39ac9;
+  --lightgrey: #a8aeb3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0 auto;
+  width: 40rem;
+}
+
+body {
+  background-color: var(--grey);
+  color: var(--white);
+  font-family: "Source Code Pro", sans-serif;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+em {
+  color: var(--lightgreen)
+}
+
+.code {
+  color: var(--red)
+}
+
+.button {
+  color: var(--grey);
+  text-decoration: none;
+  background-color: var(--white);
+  padding: 1rem 1.5rem;
+  line-height: 4rem;
+  font-weight: 500;
+  box-shadow: 0 0 1rem var(--yellow);
+  transition-duration: 500ms;
+}
+
+.button:hover {
+  background-color: var(--yellow);
+  box-shadow: 0 0 1rem var(--yellow);
+  transition-duration: 500ms;
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    width: 20.4375rem;
+  }
+}
+
+/* Header */
+
+header {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.logo a {
+  text-decoration: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
+  padding-top: 2.8125rem;
+  padding-left: 0;
+  width: 14.375rem;
+  margin: 0 auto;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+}
+
+.menu li a:hover {
+  border-bottom: 1px solid var(--white);
+}
+
+
+/* Main Homepage */
+
+main {
+  /* width: 30rem; */
+  margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.link {
+  color: var(--yellow);
+  font-style: italic;
+}
+
+.show {
+  text-decoration: underline; 
+}
+
+.show:hover {
+  cursor: pointer;
+}
+
+.email {
+  display: none;
+}
+
+.read-recently,
+.read-recently em {
+  color: var(--lightgrey)
+}
+
+.books-list {
+  display: none;
+}
+
+.yt-list {
+  display: none;
+}
+
+#joke {
+  display: none;
+}
+
+/* Footer */
