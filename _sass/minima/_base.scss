@@ -105,7 +105,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: $text-color;
   text-decoration: none;
-  border-bottom: 1px solid #ff9b5e;
+  border-bottom: 1px solid #ffd76d;
   transition: background-color 0.5 ease;
 
   &:visited {
@@ -115,7 +115,7 @@ a {
   &:hover {
     color: $text-color;
     text-decoration: none;
-    background-color: #ff9b5e;
+    background-color: #ffd76d99;
   }
 
   .social-media-list &:hover {
@@ -137,11 +137,11 @@ a {
 
 .menu li a {
   text-decoration: none;
-  color: white;
 }
 
 .menu li a:hover {
-  border-bottom: 1px solid var(--white);
+  background-color: #ffd76d99;
+  border-bottom: 1px solid #ffd76d;
 }
 
 .post-list a {
@@ -149,7 +149,7 @@ a {
 }
 
 .post-list h3 {
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 
 /**
