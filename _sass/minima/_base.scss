@@ -106,7 +106,7 @@ a {
   color: $text-color;
   text-decoration: none;
   border-bottom: 1px solid #ffd76d;
-  transition: background-color 0.5 ease;
+  transition: 1s ease;
 
   &:visited {
     color: darken($text-color, 15%);
@@ -115,7 +115,7 @@ a {
   &:hover {
     color: $text-color;
     text-decoration: none;
-    background-color: #ffd76d99;
+    background-color: #ffd76d90;
   }
 
   .social-media-list &:hover {
@@ -129,7 +129,6 @@ a {
 
 .logo a {
   text-decoration: none;
-  color: var(--white);
   font-size: 1.5rem;
   font-weight: 500;
   text-align: center;
@@ -140,7 +139,7 @@ a {
 }
 
 .menu li a:hover {
-  background-color: #ffd76d99;
+  background-color: #ffd76d90;
   border-bottom: 1px solid #ffd76d;
 }
 
