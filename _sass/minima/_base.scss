@@ -128,7 +128,7 @@ a {
 }
 
 .logo a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: var(--white);
   font-size: 1.5rem;
   font-weight: 500;
@@ -136,7 +136,7 @@ a {
 }
 
 .menu li a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: white;
 }
 
@@ -149,7 +149,7 @@ a {
 }
 
 .post-list h3 {
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
 
 /**
