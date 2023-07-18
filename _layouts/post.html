@@ -12,7 +12,7 @@ layout: default
       </time>
       <div class="tags">
         {% for tag in page.tags %}
-          <div class="tag">{{ tag }}</div>
+          <span class="tag">{{ tag }}</span>
         {% endfor %}
       </div>
       {%- if page.author -%}
