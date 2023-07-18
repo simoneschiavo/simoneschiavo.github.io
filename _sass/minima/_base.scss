@@ -106,11 +106,7 @@ a {
   color: $text-color;
   text-decoration: none;
   border-bottom: 1px solid #ffd76d;
-  transition: 1s ease-in-out;
-
-  &:visited {
-    color: darken($text-color, 15%);
-  }
+  transition: 700ms ease-in-out;
 
   &:hover {
     color: $text-color;
@@ -138,7 +134,6 @@ a {
 
 .menu li a {
   text-decoration: none;
-  border-bottom: 0px;
 }
 
 .menu li a:hover {
@@ -181,7 +176,7 @@ code {
   border: 1px solid #e8f0f0;
   border-radius: 3px;
   background-color: #e8f0f0;
-  color: #f86279;
+  color: #ff9b5e;
 }
 
 code {
