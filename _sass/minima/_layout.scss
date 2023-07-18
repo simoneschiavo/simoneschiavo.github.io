@@ -116,8 +116,14 @@
 
 header .tag {
   font-size: 14px;
-  background-color: #ff9b5e;
-  padding: 5px;  
+  background-color: #ff9b5e50;
+  padding: 5px;
+  border-radius: 3px;
+  transition: 700ms ease-in-out;
+
+  &:hover {
+    background-color: #ff9b5e;
+  }
 }
 
 
