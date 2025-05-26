@@ -5,7 +5,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
 
   // Handle scroll effect
   useEffect(() => {
@@ -16,26 +15,6 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Handle smooth scroll navigation (only on home page)
-  const handleNavClick = (e, targetId) => {
-    e.preventDefault();
-    setIsMenuOpen(false);
-
-    if (!isHomePage) {
-      // If not on home page, navigate to home first
-      window.location.href = `/${targetId}`;
-      return;
-    }
-
-    const element = document.getElementById(targetId.replace('#', ''));
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
-  };
 
   // Handle mobile menu toggle
   const toggleMenu = () => {
@@ -71,10 +50,14 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const navItems = [
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#articles', label: 'Articles' },
-    { href: '#contact', label: 'Contact' },
+    { href: '/about', label: 'ABOUT' },
+    { href: '/articles', label: 'ARTICLES' },
+    { href: '/projects', label: 'PROJECTS' },
+    { href: '/talks', label: 'TALKS' },
+    { href: '/podcasts', label: 'PODCASTS' },
+    { href: '/investing', label: 'INVESTING' },
+    { href: '/uses', label: 'USES' },
+    { href: '/reminder', label: 'REMINDER' },
   ];
 
   return (
@@ -98,22 +81,33 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map(item => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={e => handleNavClick(e, item.href)}
-                className="nav-link"
-              >
-                {item.label}
-              </a>
-            ))}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navItems.map(item => {
+              const isActive = location.pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={`relative text-sm font-medium tracking-wide transition-colors duration-200 group ${
+                    isActive ? 'text-white' : 'text-zinc-400 hover:text-white'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                  {/* Hover underline effect like Zeno's site */}
+                  <span
+                    className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full ${
+                      isActive ? 'w-full' : ''
+                    }`}
+                  ></span>
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden menu-button p-2 rounded-md text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors duration-200"
+            className="lg:hidden menu-button p-2 rounded-md text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors duration-200"
             onClick={toggleMenu}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
@@ -145,18 +139,25 @@ const Header = () => {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mobile-menu">
+          <div className="lg:hidden mobile-menu">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-black border-t border-zinc-800">
-              {navItems.map(item => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={e => handleNavClick(e, item.href)}
-                  className="block px-3 py-2 text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-colors duration-200"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map(item => {
+                const isActive = location.pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-3 py-2 text-base font-medium rounded-md transition-colors duration-200 ${
+                      isActive
+                        ? 'text-white bg-zinc-800'
+                        : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}

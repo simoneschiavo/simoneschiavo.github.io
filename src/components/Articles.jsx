@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { processedArticles } from '../data/articles.js';
 
-const Articles = () => {
+const Articles = ({ showTitle = true }) => {
   return (
-    <section id="articles" className="section-spacing">
+    <section className="section-spacing">
       <div className="container-responsive">
-        <h2 className="section-title text-center">Articles</h2>
+        {showTitle && <h2 className="section-title text-center">Articles</h2>}
         <div className="grid grid-auto-fit gap-8">
           {processedArticles.map(article => (
             <article key={article.id} className="article-card hover-lift">

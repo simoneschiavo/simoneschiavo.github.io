@@ -6,55 +6,26 @@ import {
   useLocation,
 } from 'react-router-dom';
 import Header from './components/Header.jsx';
-import Articles from './components/Articles.jsx';
 import ArticlePage from './components/ArticlePage.jsx';
+import AboutPage from './pages/AboutPage.jsx';
+import ArticlesPage from './pages/ArticlesPage.jsx';
+import ProjectsPage from './pages/ProjectsPage.jsx';
+import TalksPage from './pages/TalksPage.jsx';
+import PodcastsPage from './pages/PodcastsPage.jsx';
+import InvestingPage from './pages/InvestingPage.jsx';
+import UsesPage from './pages/UsesPage.jsx';
+import ReminderPage from './pages/ReminderPage.jsx';
 import { personalInfo } from './data/content.js';
 import { trackWebVitals, trackPageView } from './utils/analytics.js';
 
-// Home page component
+// Home page component - simplified to just hero
 const HomePage = () => {
-  // Handle smooth scroll navigation
-  const handleNavClick = (e, targetId) => {
-    e.preventDefault();
-    const element = document.getElementById(targetId.replace('#', ''));
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // Handle skip link navigation
-  const handleSkipToContent = e => {
-    e.preventDefault();
-    const mainContent = document.getElementById('main-content');
-    if (mainContent) {
-      mainContent.focus();
-      mainContent.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="min-h-screen bg-black">
-      {/* Skip Links */}
-      <div className="fixed top-0 left-0 z-50">
-        <a
-          href="#main-content"
-          onClick={handleSkipToContent}
-          className="absolute -top-40 left-6 bg-white text-black px-4 py-2 rounded font-medium text-sm transition-all duration-300 focus:top-6 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
-        >
-          Skip to main content
-        </a>
-      </div>
-
       {/* Main Content */}
-      <main
-        id="main-content"
-        tabIndex="-1"
-        role="main"
-        aria-label="Main content"
-        className="pt-16"
-      >
+      <main className="pt-16">
         {/* Hero Section */}
-        <section id="hero" className="section-spacing">
+        <section className="min-h-screen flex items-center justify-center">
           <div className="container-responsive">
             <div className="fade-in text-center">
               <h1 className="hero-name">{personalInfo.name}</h1>
@@ -73,69 +44,10 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-
-        {/* About Section */}
-        <section id="about" className="section-spacing">
-          <div className="container-responsive">
-            <h2 className="section-title text-center">About</h2>
-            <div className="slide-up">
-              <p className="text-lg text-zinc-400 max-w-3xl mx-auto text-center">
-                I'm a Product Growth Professional with a passion for building
-                scalable growth systems that drive meaningful business impact. I
-                specialize in the intersection of product development and growth
-                marketing, focusing on data-driven strategies that improve user
-                acquisition, activation, and retention.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Projects Section */}
-        <section id="projects" className="section-spacing">
-          <div className="container-responsive">
-            <h2 className="section-title text-center">Projects</h2>
-            <div className="grid grid-auto-fit gap-8">
-              <div className="project-card hover-lift">
-                <h3 className="project-title">Product-Led Growth Framework</h3>
-                <p className="project-description">
-                  Developed a comprehensive PLG framework that helps B2B SaaS
-                  companies transition from sales-led to product-led growth.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="project-tech">Product Analytics</span>
-                  <span className="project-tech">A/B Testing</span>
-                  <span className="project-tech">Growth Modeling</span>
-                </div>
-                <a href="#" className="project-link">
-                  View Case Study →
-                </a>
-              </div>
-
-              <div className="project-card hover-lift">
-                <h3 className="project-title">Growth Analytics Dashboard</h3>
-                <p className="project-description">
-                  Built a comprehensive growth analytics dashboard that tracks
-                  key product metrics, user behavior, and growth experiments.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="project-tech">SQL</span>
-                  <span className="project-tech">Python</span>
-                  <span className="project-tech">Mixpanel</span>
-                </div>
-                <a href="#" className="project-link">
-                  View Demo →
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Articles Section */}
-        <Articles />
       </main>
 
       {/* Footer */}
-      <footer id="contact" className="section-spacing-sm">
+      <footer className="section-spacing-sm">
         <div className="container-responsive text-center">
           <div className="footer-links">
             <a href="mailto:simone.schiavo@example.com" className="footer-link">
@@ -189,7 +101,15 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/articles" element={<ArticlesPage />} />
           <Route path="/articles/:slug" element={<ArticlePage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/talks" element={<TalksPage />} />
+          <Route path="/podcasts" element={<PodcastsPage />} />
+          <Route path="/investing" element={<InvestingPage />} />
+          <Route path="/uses" element={<UsesPage />} />
+          <Route path="/reminder" element={<ReminderPage />} />
         </Routes>
       </AnalyticsWrapper>
     </Router>
