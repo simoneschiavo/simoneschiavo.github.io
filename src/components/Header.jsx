@@ -53,11 +53,6 @@ const Header = () => {
     { href: '/about', label: 'ABOUT' },
     { href: '/articles', label: 'ARTICLES' },
     { href: '/projects', label: 'PROJECTS' },
-    { href: '/talks', label: 'TALKS' },
-    { href: '/podcasts', label: 'PODCASTS' },
-    { href: '/investing', label: 'INVESTING' },
-    { href: '/uses', label: 'USES' },
-    { href: '/reminder', label: 'REMINDER' },
   ];
 
   return (
@@ -88,8 +83,10 @@ const Header = () => {
                 <Link
                   key={item.href}
                   to={item.href}
-                  className={`relative text-sm font-medium tracking-wide transition-colors duration-200 group ${
-                    isActive ? 'text-white' : 'text-zinc-400 hover:text-white'
+                  className={`relative text-sm font-medium tracking-wide transition-all duration-200 group px-3 py-2 rounded-md ${
+                    isActive
+                      ? 'text-white bg-zinc-800/50'
+                      : 'text-zinc-400 hover:text-white hover:bg-zinc-800/30'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
