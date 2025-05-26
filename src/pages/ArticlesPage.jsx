@@ -18,7 +18,7 @@ const ArticlesPage = () => {
 
             {/* Page Header */}
             <header className="mb-12 text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 gradient-text-blue">
                 Articles
               </h1>
               <p className="text-xl text-zinc-400 leading-relaxed max-w-3xl mx-auto">

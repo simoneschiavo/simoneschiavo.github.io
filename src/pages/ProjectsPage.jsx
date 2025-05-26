@@ -75,7 +75,7 @@ const ProjectsPage = () => {
 
             {/* Page Header */}
             <header className="mb-12 text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 gradient-text-green">
                 Projects
               </h1>
               <p className="text-xl text-zinc-400 leading-relaxed max-w-3xl mx-auto">
@@ -130,7 +130,7 @@ const ProjectsPage = () => {
 
             {/* Call to Action */}
             <div className="mt-16 text-center">
-              <h2 className="text-2xl font-bold text-white mb-4">
+              <h2 className="text-2xl font-bold mb-4 gradient-text-purple">
                 Interested in collaborating?
               </h2>
               <p className="text-zinc-400 mb-6 max-w-2xl mx-auto">

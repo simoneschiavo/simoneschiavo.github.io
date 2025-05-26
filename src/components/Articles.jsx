@@ -6,7 +6,11 @@ const Articles = ({ showTitle = true }) => {
   return (
     <section className="section-spacing">
       <div className="container-responsive">
-        {showTitle && <h2 className="section-title text-center">Articles</h2>}
+        {showTitle && (
+          <h2 className="section-title text-center gradient-text-rainbow">
+            Articles
+          </h2>
+        )}
         <div className="grid grid-auto-fit gap-8">
           {processedArticles.map(article => (
             <article key={article.id} className="article-card hover-lift">

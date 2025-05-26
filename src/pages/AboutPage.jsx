@@ -17,7 +17,7 @@ const AboutPage = () => {
 
             {/* Page Header */}
             <header className="mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 gradient-text-purple">
                 About
               </h1>
               <p className="text-xl text-zinc-400 leading-relaxed">
@@ -30,7 +30,7 @@ const AboutPage = () => {
             <div className="prose prose-invert prose-lg max-w-none">
               <div className="space-y-8">
                 <section>
-                  <h2 className="text-2xl font-bold text-white mb-4">
+                  <h2 className="text-2xl font-bold mb-4 gradient-text-blue">
                     Background
                   </h2>
                   <p className="text-zinc-300 leading-relaxed mb-4">
@@ -51,7 +51,7 @@ const AboutPage = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-white mb-4">
+                  <h2 className="text-2xl font-bold mb-4 gradient-text-green">
                     Expertise
                   </h2>
                   <div className="grid md:grid-cols-2 gap-6">
@@ -81,7 +81,7 @@ const AboutPage = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-white mb-4">
+                  <h2 className="text-2xl font-bold mb-4 gradient-text-orange">
                     Philosophy
                   </h2>
                   <p className="text-zinc-300 leading-relaxed">
@@ -94,7 +94,7 @@ const AboutPage = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-white mb-4">
+                  <h2 className="text-2xl font-bold mb-4 gradient-text-pink">
                     Let's Connect
                   </h2>
                   <p className="text-zinc-300 leading-relaxed mb-6">

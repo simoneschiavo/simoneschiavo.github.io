@@ -59,7 +59,7 @@ const ArticlePage = () => {
               ))}
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight gradient-text-rainbow">
               {article.title}
             </h1>
 
@@ -160,7 +160,7 @@ const ArticlePage = () => {
       {relatedArticles.length > 0 && (
         <section className="section-spacing-sm border-t border-zinc-800">
           <div className="container-narrow">
-            <h2 className="text-2xl font-bold text-white mb-8">
+            <h2 className="text-2xl font-bold mb-8 gradient-text-purple">
               Related Articles
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
