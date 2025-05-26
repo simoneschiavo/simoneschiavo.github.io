@@ -10,8 +10,11 @@ const Projects = () => {
       role="region"
     >
       <div className="container-narrow">
-        <h2 id="projects-heading" className="section-heading">
-          <span className="text-green font-mono responsive-text-sm">03.</span>
+        <h2
+          id="projects-heading"
+          className="section-heading animate-fade-in-up"
+        >
+          <span className="section-number">03.</span>
           <span className="ml-2">Some Things I've Built</span>
         </h2>
 
@@ -19,24 +22,24 @@ const Projects = () => {
           {projects.map((project, index) => (
             <article
               key={index}
-              className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center group ${
+              className={`project-featured project-featured-${index + 1} grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center group ${
                 index % 2 === 1 ? 'lg:text-right' : ''
               }`}
             >
-              {/* Project Image */}
+              {/* Enhanced Project Image */}
               <div
                 className={`lg:col-span-7 relative ${
                   index % 2 === 1 ? 'lg:order-2' : ''
                 }`}
               >
-                <div className="relative">
-                  {/* Image Placeholder */}
-                  <div className="aspect-video bg-green/10 rounded-lg overflow-hidden relative group-hover:transform group-hover:scale-105 transition-transform duration-500">
+                <div className="project-image-container">
+                  {/* Enhanced Image Placeholder */}
+                  <div className="project-image-placeholder project-image-scale aspect-video rounded-lg overflow-hidden relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-green/20 to-navy/60"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-center">
                         <svg
-                          className="w-16 h-16 text-green/60 mx-auto mb-4"
+                          className="w-16 h-16 text-green/60 mx-auto mb-4 transition-all duration-300 group-hover:text-green group-hover:scale-110"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -49,56 +52,55 @@ const Projects = () => {
                             d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                           />
                         </svg>
-                        <p className="text-green/60 text-sm font-mono">
+                        <p className="text-green/60 text-sm font-mono group-hover:text-green transition-colors duration-300">
                           Project Dashboard
                         </p>
                       </div>
                     </div>
                   </div>
-
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-green/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </div>
 
-              {/* Project Content */}
+              {/* Enhanced Project Content */}
               <div
-                className={`lg:col-span-5 space-y-4 ${
+                className={`lg:col-span-5 space-y-4 project-content-reveal ${
                   index % 2 === 1 ? 'lg:order-1' : ''
                 }`}
               >
-                {/* Featured Project Label */}
-                <p className="text-green font-mono text-sm">Featured Project</p>
+                {/* Enhanced Featured Project Label */}
+                <p className="featured-project-label text-green font-mono text-sm">
+                  Featured Project
+                </p>
 
-                {/* Project Title */}
-                <h3 className="text-lightest-slate text-2xl lg:text-3xl font-semibold group-hover:text-green transition-colors duration-300">
+                {/* Enhanced Project Title */}
+                <h3 className="project-title text-lightest-slate text-2xl lg:text-3xl font-semibold">
                   {project.title}
                 </h3>
 
-                {/* Project Description */}
-                <div className="bg-light-navy rounded-lg p-6 shadow-lg relative z-10">
+                {/* Enhanced Project Description */}
+                <div className="project-description-card bg-light-navy rounded-lg p-6 shadow-lg relative z-10">
                   <p className="text-slate leading-relaxed">
                     {project.description}
                   </p>
                 </div>
 
-                {/* Technologies */}
+                {/* Enhanced Technologies */}
                 <div
-                  className={`flex flex-wrap gap-2 ${
+                  className={`flex flex-wrap gap-3 ${
                     index % 2 === 1 ? 'lg:justify-end' : ''
                   }`}
                 >
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="text-slate font-mono text-sm hover:text-green transition-colors duration-300"
+                      className="project-tech-tag text-slate font-mono text-sm px-2 py-1 rounded transition-all duration-300"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Project Links */}
+                {/* Enhanced Project Links */}
                 <div
                   className={`flex items-center space-x-4 ${
                     index % 2 === 1 ? 'lg:justify-end' : ''
@@ -109,7 +111,7 @@ const Projects = () => {
                       href={project.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-slate hover:text-green transition-colors duration-300 hover:transform hover:scale-110"
+                      className="project-link text-slate transition-all duration-300"
                       aria-label={`View ${project.title} source code`}
                     >
                       <svg
@@ -127,7 +129,7 @@ const Projects = () => {
                       href={project.links.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-slate hover:text-green transition-colors duration-300 hover:transform hover:scale-110"
+                      className="project-link text-slate transition-all duration-300"
                       aria-label={`View ${project.title} live demo`}
                     >
                       <svg
@@ -152,18 +154,18 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Other Notable Projects */}
-        <div className="mt-24">
+        {/* Enhanced Other Notable Projects */}
+        <div className="mt-24 notable-projects-grid">
           <h3 className="text-lightest-slate text-xl lg:text-2xl font-semibold mb-12 text-center">
             Other Notable Projects
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Additional Project Cards */}
-            <div className="bg-light-navy rounded-lg p-6 hover:transform hover:-translate-y-2 transition-all duration-300 group border border-lightest-navy/20 hover:border-green/20">
+            {/* Enhanced Additional Project Cards */}
+            <div className="notable-project-card notable-project-1 bg-light-navy rounded-lg p-6 border border-lightest-navy/20">
               <div className="flex items-center justify-between mb-4">
                 <svg
-                  className="w-8 h-8 text-green"
+                  className="notable-project-icon w-8 h-8 text-green"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -179,7 +181,7 @@ const Projects = () => {
                 <div className="flex space-x-3">
                   <a
                     href="#"
-                    className="text-slate hover:text-green transition-colors duration-300"
+                    className="project-link text-slate transition-all duration-300"
                     aria-label="View project source"
                   >
                     <svg
@@ -192,7 +194,7 @@ const Projects = () => {
                   </a>
                   <a
                     href="#"
-                    className="text-slate hover:text-green transition-colors duration-300"
+                    className="project-link text-slate transition-all duration-300"
                     aria-label="View project demo"
                   >
                     <svg
@@ -212,7 +214,7 @@ const Projects = () => {
                 </div>
               </div>
 
-              <h4 className="text-lightest-slate font-semibold mb-2 group-hover:text-green transition-colors duration-300">
+              <h4 className="notable-project-title text-lightest-slate font-semibold mb-2 transition-all duration-300">
                 Email Marketing Automation
               </h4>
               <p className="text-slate text-sm leading-relaxed mb-4">
@@ -221,16 +223,22 @@ const Projects = () => {
                 behavioral triggers.
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="text-slate font-mono text-xs">Mailchimp</span>
-                <span className="text-slate font-mono text-xs">Zapier</span>
-                <span className="text-slate font-mono text-xs">Segment</span>
+                <span className="notable-tech-tag text-slate font-mono text-xs">
+                  Mailchimp
+                </span>
+                <span className="notable-tech-tag text-slate font-mono text-xs">
+                  Zapier
+                </span>
+                <span className="notable-tech-tag text-slate font-mono text-xs">
+                  Segment
+                </span>
               </div>
             </div>
 
-            <div className="bg-light-navy rounded-lg p-6 hover:transform hover:-translate-y-2 transition-all duration-300 group border border-lightest-navy/20 hover:border-green/20">
+            <div className="notable-project-card notable-project-2 bg-light-navy rounded-lg p-6 border border-lightest-navy/20">
               <div className="flex items-center justify-between mb-4">
                 <svg
-                  className="w-8 h-8 text-green"
+                  className="notable-project-icon w-8 h-8 text-green"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -246,7 +254,7 @@ const Projects = () => {
                 <div className="flex space-x-3">
                   <a
                     href="#"
-                    className="text-slate hover:text-green transition-colors duration-300"
+                    className="project-link text-slate transition-all duration-300"
                     aria-label="View project source"
                   >
                     <svg
@@ -259,7 +267,7 @@ const Projects = () => {
                   </a>
                   <a
                     href="#"
-                    className="text-slate hover:text-green transition-colors duration-300"
+                    className="project-link text-slate transition-all duration-300"
                     aria-label="View project demo"
                   >
                     <svg
@@ -279,7 +287,7 @@ const Projects = () => {
                 </div>
               </div>
 
-              <h4 className="text-lightest-slate font-semibold mb-2 group-hover:text-green transition-colors duration-300">
+              <h4 className="notable-project-title text-lightest-slate font-semibold mb-2 transition-all duration-300">
                 A/B Testing Framework
               </h4>
               <p className="text-slate text-sm leading-relaxed mb-4">
@@ -288,18 +296,22 @@ const Projects = () => {
                 cycles and more reliable results.
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="text-slate font-mono text-xs">Optimizely</span>
-                <span className="text-slate font-mono text-xs">
+                <span className="notable-tech-tag text-slate font-mono text-xs">
+                  Optimizely
+                </span>
+                <span className="notable-tech-tag text-slate font-mono text-xs">
                   Google Optimize
                 </span>
-                <span className="text-slate font-mono text-xs">Mixpanel</span>
+                <span className="notable-tech-tag text-slate font-mono text-xs">
+                  Mixpanel
+                </span>
               </div>
             </div>
 
-            <div className="bg-light-navy rounded-lg p-6 hover:transform hover:-translate-y-2 transition-all duration-300 group border border-lightest-navy/20 hover:border-green/20">
+            <div className="notable-project-card notable-project-3 bg-light-navy rounded-lg p-6 border border-lightest-navy/20">
               <div className="flex items-center justify-between mb-4">
                 <svg
-                  className="w-8 h-8 text-green"
+                  className="notable-project-icon w-8 h-8 text-green"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -315,7 +327,7 @@ const Projects = () => {
                 <div className="flex space-x-3">
                   <a
                     href="#"
-                    className="text-slate hover:text-green transition-colors duration-300"
+                    className="project-link text-slate transition-all duration-300"
                     aria-label="View project source"
                   >
                     <svg
@@ -328,7 +340,7 @@ const Projects = () => {
                   </a>
                   <a
                     href="#"
-                    className="text-slate hover:text-green transition-colors duration-300"
+                    className="project-link text-slate transition-all duration-300"
                     aria-label="View project demo"
                   >
                     <svg
@@ -348,7 +360,7 @@ const Projects = () => {
                 </div>
               </div>
 
-              <h4 className="text-lightest-slate font-semibold mb-2 group-hover:text-green transition-colors duration-300">
+              <h4 className="notable-project-title text-lightest-slate font-semibold mb-2 transition-all duration-300">
                 Performance Marketing Dashboard
               </h4>
               <p className="text-slate text-sm leading-relaxed mb-4">
@@ -357,13 +369,13 @@ const Projects = () => {
                 decisions and budget allocation.
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="text-slate font-mono text-xs">
+                <span className="notable-tech-tag text-slate font-mono text-xs">
                   Data Studio
                 </span>
-                <span className="text-slate font-mono text-xs">
+                <span className="notable-tech-tag text-slate font-mono text-xs">
                   Google Ads API
                 </span>
-                <span className="text-slate font-mono text-xs">
+                <span className="notable-tech-tag text-slate font-mono text-xs">
                   Facebook API
                 </span>
               </div>
@@ -371,8 +383,8 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
+        {/* Enhanced Call to Action */}
+        <div className="projects-cta mt-16 text-center">
           <p className="text-slate responsive-text-base mb-6">
             Want to see more of my work or discuss a potential collaboration?
           </p>
