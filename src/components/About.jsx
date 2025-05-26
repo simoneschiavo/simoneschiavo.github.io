@@ -1,5 +1,5 @@
 import React from 'react';
-import { personalInfo } from '../data/content.js';
+import { personalInfo, socialLinks } from '../data/content.js';
 
 const About = () => {
   const skills = [
@@ -163,7 +163,7 @@ const About = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={personalInfo.social.find(s => s.name === 'LinkedIn')?.url}
+              href={socialLinks.find(s => s.name === 'LinkedIn')?.url}
               target="_blank"
               rel="noopener noreferrer"
               className="btn group"
@@ -180,7 +180,7 @@ const About = () => {
                 Connect on LinkedIn
               </span>
             </a>
-            <a href="mailto:hello@example.com" className="btn group">
+            <a href={`mailto:${personalInfo.email}`} className="btn group">
               <svg
                 className="w-4 h-4 mr-2"
                 fill="none"
