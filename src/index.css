@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+  --color-navy: #0a192f;
+  --color-light-navy: #112240;
+  --color-lightest-navy: #233554;
+  --color-slate: #8892b0;
+  --color-light-slate: #a8b2d1;
+  --color-lightest-slate: #ccd6f6;
+  --color-white: #e6f1ff;
+  --color-green: #64ffda;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-navy text-slate font-sans leading-relaxed antialiased;
+    font-family:
+      'Inter',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      'Roboto',
+      'Oxygen',
+      'Ubuntu',
+      'Cantarell',
+      'Fira Sans',
+      'Droid Sans',
+      'Helvetica Neue',
+      sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-lightest-slate font-semibold;
+  }
+
+  a {
+    @apply text-green transition-colors duration-300;
+  }
+
+  a:hover {
+    @apply text-green opacity-80;
+  }
+
+  /* Responsive section layout */
+  section {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24;
+  }
+
+  /* Responsive typography */
+  .responsive-text-sm {
+    @apply text-sm sm:text-base;
+  }
+
+  .responsive-text-base {
+    @apply text-base sm:text-lg;
+  }
+
+  .responsive-text-lg {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+
+  .responsive-text-xl {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+
+  .responsive-text-2xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
+  .responsive-text-3xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  .responsive-text-4xl {
+    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl;
+  }
+}
+
+@layer components {
+  /* Responsive button component - enhanced version is below */
+
+  /* Responsive section heading */
+  .section-heading {
+    @apply flex items-center text-xl sm:text-2xl lg:text-3xl font-semibold text-lightest-slate mb-8 sm:mb-10 lg:mb-12;
+  }
+
+  .section-heading::before {
+    @apply content-[''] block w-6 sm:w-8 lg:w-10 h-px bg-green mr-3 sm:mr-4;
+  }
+
+  .section-heading::after {
+    @apply content-[''] block flex-1 h-px bg-lightest-navy ml-3 sm:ml-4;
+  }
+
+  /* Container utilities */
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Grid utilities */
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
+  }
+
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8;
+  }
+
+  /* Spacing utilities */
+  .section-spacing {
+    @apply py-16 sm:py-20 lg:py-24 xl:py-32;
+  }
+
+  .section-spacing-sm {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  /* Card component */
+  .card {
+    @apply bg-light-navy rounded-lg p-4 sm:p-6 lg:p-8 transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply transform -translate-y-1 shadow-lg;
+  }
+
+  /* Responsive text containers */
+  .text-container {
+    @apply max-w-none sm:max-w-lg lg:max-w-2xl;
+  }
+
+  .text-container-narrow {
+    @apply max-w-none sm:max-w-md lg:max-w-lg;
+  }
+
+  .text-container-wide {
+    @apply max-w-none sm:max-w-2xl lg:max-w-4xl;
+  }
+
+  /* Mobile menu utilities */
+  .mobile-menu-backdrop {
+    @apply fixed inset-0 bg-navy/95 backdrop-blur-md;
+  }
+
+  .mobile-menu-item {
+    @apply transform transition-all duration-300 ease-out;
+  }
+
+  .mobile-menu-item-enter {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .mobile-menu-item-exit {
+    @apply translate-y-4 opacity-0;
+  }
+
+  /* Screen reader only utility */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  /* Focus visible utility for better keyboard navigation */
+  .focus-visible {
+    @apply outline-none ring-2 ring-green/50 ring-offset-2 ring-offset-navy;
+  }
+
+  /* Skip links */
+  .skip-links {
+    @apply fixed top-0 left-0 z-50;
+  }
+
+  .skip-link {
+    @apply absolute -top-40 left-6 bg-green text-navy px-4 py-2 rounded font-mono text-sm font-semibold transition-all duration-300;
+    @apply focus:top-6 focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2 focus:ring-offset-green;
+  }
+
+  /* Enhanced focus styles for interactive elements */
+  .card:focus {
+    @apply outline-none ring-2 ring-green/50 ring-offset-2 ring-offset-navy;
+  }
+
+  .btn:focus-visible {
+    @apply ring-2 ring-green/50 ring-offset-2 ring-offset-navy;
+  }
+
+  /* Keyboard navigation indicators */
+  .keyboard-nav-active *:focus {
+    @apply outline-none ring-2 ring-green/50 ring-offset-2 ring-offset-navy;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .btn {
+      @apply border-2;
+    }
+
+    .card {
+      @apply border border-slate;
+    }
+  }
+
+  /* Hero animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Enhanced button styles */
+  .btn {
+    @apply inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 border border-green text-green font-mono text-sm rounded transition-all duration-300;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(100, 255, 218, 0.1),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .btn:hover::before {
+    left: 100%;
+  }
+
+  .btn:hover {
+    @apply bg-green/10 transform -translate-y-1 shadow-lg;
+  }
+
+  .btn:focus {
+    @apply outline-none ring-2 ring-green/50;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
