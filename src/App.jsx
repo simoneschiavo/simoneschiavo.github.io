@@ -10,6 +10,7 @@ import ArticlePage from './components/ArticlePage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import ArticlesPage from './pages/ArticlesPage.jsx';
 import ProjectsPage from './pages/ProjectsPage.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 import { personalInfo } from './data/content.js';
 import { trackWebVitals, trackPageView } from './utils/analytics.js';
 
@@ -28,12 +29,28 @@ const HomePage = () => {
               {personalInfo.description}
             </p>
 
-            {/* Keyboard shortcut like Zeno's design */}
-            <div className="keyboard-shortcut justify-center">
-              <span>Press</span>
-              <span className="keyboard-key">⌘</span>
-              <span className="keyboard-key">K</span>
-              <span>to start →</span>
+            {/* Learn More Button */}
+            <div className="mt-8">
+              <a
+                href="/about"
+                className="btn-primary inline-flex items-center px-6 py-3 font-medium rounded-lg transition-all duration-200 hover:scale-105"
+              >
+                Learn More
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -90,6 +107,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <AnalyticsWrapper>
         <Header />
         <Routes>
