@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CareerSection from '../components/CareerSection.jsx';
-import EducationSection from '../components/EducationSection.jsx';
+import CertificationsSection from '../components/CertificationsSection.jsx';
 
 const AboutPage = () => {
   return (
@@ -54,7 +54,7 @@ const AboutPage = () => {
 
                 <CareerSection />
 
-                <EducationSection />
+                <CertificationsSection />
 
                 <section>
                   <h2 className="text-2xl font-bold mb-4 text-white">
@@ -67,13 +67,13 @@ const AboutPage = () => {
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <a
-                      href="mailto:simone.schiavo@example.com"
+                      href="mailto:simoneschiavo@icloud.com"
                       className="btn-white inline-flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200 hover:scale-105"
                     >
                       Get in Touch
                     </a>
                     <a
-                      href="https://linkedin.com/in/simoneschiavo"
+                      href="https://www.linkedin.com/in/simone-schiavo/"
                       className="inline-flex items-center px-4 py-2 border border-zinc-600 text-white font-medium rounded-lg hover:border-white transition-colors duration-200"
                     >
                       LinkedIn

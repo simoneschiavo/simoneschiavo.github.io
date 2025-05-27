@@ -1,15 +1,13 @@
 import React from 'react';
-import { education } from '../data/career.js';
+import { certifications } from '../data/career.js';
 
-const EducationSection = () => {
+const CertificationsSection = () => {
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-4 text-white">
-        Education & Certifications
-      </h2>
+      <h2 className="text-2xl font-bold mb-4 text-white">Certifications</h2>
 
       <div className="timeline-container">
-        {education.map(item => (
+        {certifications.map(item => (
           <div key={item.id} className="timeline-item">
             <div className="career-card hover-lift">
               <div className="mb-3">
@@ -37,4 +35,4 @@ const EducationSection = () => {
   );
 };
 
-export default EducationSection;
+export default CertificationsSection;

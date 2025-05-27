@@ -1,9 +1,9 @@
-// Career and Education Data
-// This file contains professional experience and education information
+// Career and Certifications Data
+// This file contains professional experience and certification information
 // for easy maintenance and updates
 //
 // Usage:
-// import { careerExperiences, education } from '../data/career.js';
+// import { careerExperiences, certifications } from '../data/career.js';
 
 export const careerExperiences = [
   {
@@ -86,30 +86,44 @@ export const careerExperiences = [
     startDate: '2018',
     endDate: '2019',
     description: '',
-    skills: ['Project Management', 'Google Analytics', 'Google Tag Manager', 'Google Ads', 'Hubspot', 'Salesforce',],
+    skills: [
+      'Project Management',
+      'Google Analytics',
+      'Google Tag Manager',
+      'Google Ads',
+      'Hubspot',
+      'Salesforce',
+    ],
   },
 ];
 
-export const education = [
+export const certifications = [
   {
-    id: 'northeastern-cs',
-    degree: 'Bachelor of Science in Computer Science',
-    institution: 'Northeastern University',
-    year: '2018',
-    details: 'Concentration in Software Engineering',
+    id: 'cro-minidegree-2025',
+    degree: 'CRO Minidegree',
+    institution: 'CXL',
+    year: '2025',
+    details: '',
   },
   {
-    id: 'aws-certified',
-    degree: 'AWS Certified Solutions Architect',
-    institution: 'Amazon Web Services',
+    id: 'mastering-experimentation-2023',
+    degree: 'Mastering Experimentation',
+    institution: 'Reforge',
+    year: '2023',
+    details: '',
+  },
+  {
+    id: 'growth-series-2022',
+    degree: 'Growth Series',
+    institution: 'Reforge',
     year: '2022',
-    details: 'Associate Level Certification',
+    details: '',
   },
   {
-    id: 'react-certification',
-    degree: 'React Developer Certification',
-    institution: 'Meta',
-    year: '2021',
-    details: 'Advanced React and Frontend Development',
+    id: 'retention-engagement-2020',
+    degree: 'Retention + Engagement Program',
+    institution: 'Reforge',
+    year: '2020',
+    details: '',
   },
 ];
