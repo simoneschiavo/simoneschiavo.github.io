@@ -7,24 +7,19 @@
 
 export const careerExperiences = [
   {
-    id: 'dealfront-leadfeeder-2022',
+    id: 'dealfront-2022',
     title: 'Senior Growth Manager',
-    company: 'Dealfront / Leadfeeder',
+    company: 'Dealfront',
     companyUrl: 'https://www.dealfront.com',
     startDate: 'January 2022',
     endDate: 'Present',
     location: 'Remote',
-    description:
-      'Led and mentored a team of growth marketers to achieve excellent results across CRO, lifecycle marketing, and product marketing. Owned activation metrics for website and 3 products. Improved Leadfeeder onboarding metrics by 50%+ through compounding optimizations to the signup and onboarding experience. Increased PQL to Purchase by 2% absolute by accelerating time-to-value for core user segments with pre-built experiences. Generated 500+ incremental leads per month from data-driven experiments on key website pages.',
-    previousRole: {
-      title: 'Senior Lifecycle Marketing Manager',
-      achievements: [
-        'Improved tracker installation rate by 4% leveraging a mix of in-app and email reactivation activities',
-        'Increased free to paid conversion rate by 20% YoY experimenting with purchase triggers inside the app',
-        'Defined onboarding OKRs and created the reports and dashboards to monitor them in Metabase',
-        'Deployed 2 tools for A/B testing and in-app messaging that allowed our team to reach our goals and reduce dependencies on the dev team',
-      ],
-    },
+    description: [
+      'Owned activation metrics for the website and 3 products',
+      'Improved Leadfeeder key onboarding metrics by 50%+ and trial to paid CR by 15% via signup and onboarding optimizations',
+      'Coordinated multiple successful product launches with PLG and sales assisted motions',
+      'Generated 500+ incremental leads per month from data-driven experiments on key website pages',
+    ],
     skills: [
       'Growth Marketing',
       'CRO',

@@ -35,7 +35,18 @@ const CareerCard = ({ experience }) => {
         </div>
       </div>
 
-      <p className="text-zinc-300 leading-relaxed mb-4">{description}</p>
+      {Array.isArray(description) ? (
+        <ul className="text-zinc-300 leading-relaxed mb-4 space-y-2">
+          {description.map((item, index) => (
+            <li key={index} className="flex items-start">
+              <span className="text-zinc-500 mr-2 mt-1.5 flex-shrink-0">•</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-zinc-300 leading-relaxed mb-4">{description}</p>
+      )}
 
       {previousRole && (
         <div className="mb-4 p-3 bg-zinc-900/50 rounded-lg border border-zinc-800">
