@@ -201,6 +201,7 @@ a:focus {
 
 .btn-primary:hover {
   background-color: #f4f4f5;
+  color: #000000;
 }
 
 .btn-primary:focus {
