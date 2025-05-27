@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CareerSection from '../components/CareerSection.jsx';
+import EducationSection from '../components/EducationSection.jsx';
 
 const AboutPage = () => {
   return (
@@ -30,7 +32,7 @@ const AboutPage = () => {
             <div className="prose prose-invert prose-lg max-w-none">
               <div className="space-y-8">
                 <section>
-                  <h2 className="text-2xl font-bold mb-4 gradient-text-blue">
+                  <h2 className="text-2xl font-bold mb-4 text-white">
                     Background
                   </h2>
                   <p className="text-zinc-300 leading-relaxed mb-4">
@@ -50,38 +52,12 @@ const AboutPage = () => {
                   </p>
                 </section>
 
-                <section>
-                  <h2 className="text-2xl font-bold mb-4 gradient-text-green">
-                    Expertise
-                  </h2>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-semibold text-white">
-                        Product-Led Growth
-                      </h3>
-                      <ul className="text-zinc-300 space-y-2">
-                        <li>• PLG framework development</li>
-                        <li>• User onboarding optimization</li>
-                        <li>• Feature adoption strategies</li>
-                        <li>• Self-serve conversion funnels</li>
-                      </ul>
-                    </div>
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-semibold text-white">
-                        Growth Analytics
-                      </h3>
-                      <ul className="text-zinc-300 space-y-2">
-                        <li>• Cohort analysis & retention modeling</li>
-                        <li>• A/B testing & experimentation</li>
-                        <li>• Growth metrics & KPI frameworks</li>
-                        <li>• Data pipeline architecture</li>
-                      </ul>
-                    </div>
-                  </div>
-                </section>
+                <CareerSection />
+
+                <EducationSection />
 
                 <section>
-                  <h2 className="text-2xl font-bold mb-4 gradient-text-orange">
+                  <h2 className="text-2xl font-bold mb-4 text-white">
                     Philosophy
                   </h2>
                   <p className="text-zinc-300 leading-relaxed">
@@ -94,7 +70,7 @@ const AboutPage = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold mb-4 gradient-text-pink">
+                  <h2 className="text-2xl font-bold mb-4 text-white">
                     Let's Connect
                   </h2>
                   <p className="text-zinc-300 leading-relaxed mb-6">
@@ -105,7 +81,7 @@ const AboutPage = () => {
                   <div className="flex flex-wrap gap-4">
                     <a
                       href="mailto:simone.schiavo@example.com"
-                      className="inline-flex items-center px-4 py-2 bg-white text-black font-medium rounded-lg hover:bg-zinc-200 transition-colors duration-200"
+                      className="btn-white inline-flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200 hover:scale-105"
                     >
                       Get in Touch
                     </a>

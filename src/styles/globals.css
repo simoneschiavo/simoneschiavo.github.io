@@ -207,6 +207,17 @@ a:focus {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
 }
 
+/* Button overrides for proper text color */
+.btn-white {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.btn-white:hover {
+  background-color: #f4f4f5 !important;
+  color: #000000 !important;
+}
+
 .card {
   background-color: #09090b;
   border: 1px solid #27272a;
@@ -319,6 +330,35 @@ a:focus {
 .article-meta {
   color: #71717a;
   font-size: 0.875rem;
+}
+
+.career-card {
+  background-color: #09090b;
+  border: 1px solid #27272a;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.career-card:hover {
+  border-color: #3f3f46;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.5),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Timeline layout classes */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  width: 100%;
 }
 
 .nav-link {
