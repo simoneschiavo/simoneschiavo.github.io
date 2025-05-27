@@ -12,9 +12,7 @@ export const articles = [
     slug: 'product-led-growth-framework',
     excerpt:
       'A comprehensive guide to implementing PLG strategies that drive sustainable growth through product value and user experience.',
-    content: `# Building a Product-Led Growth Framework for B2B SaaS
-
-Product-Led Growth (PLG) has become the dominant growth strategy for successful B2B SaaS companies. Unlike traditional sales-led approaches, PLG puts the product at the center of customer acquisition, activation, and expansion.
+    content: `Product-Led Growth (PLG) has become the dominant growth strategy for successful B2B SaaS companies. Unlike traditional sales-led approaches, PLG puts the product at the center of customer acquisition, activation, and expansion.
 
 ## What is Product-Led Growth?
 
@@ -96,9 +94,7 @@ The key is to start small, measure everything, and iterate based on user behavio
     slug: 'optimizing-user-activation',
     excerpt:
       'Learn how to design onboarding experiences that get users to their "aha moment" faster and improve activation rates.',
-    content: `# Optimizing User Activation: From Sign-up to First Value
-
-User activation is the critical bridge between acquisition and retention. It's the moment when a new user first experiences the core value of your product—their "aha moment." Optimizing this journey can dramatically improve your conversion rates and long-term retention.
+    content: `User activation is the critical bridge between acquisition and retention. It's the moment when a new user first experiences the core value of your product—their "aha moment." Optimizing this journey can dramatically improve your conversion rates and long-term retention.
 
 ## Understanding User Activation
 
@@ -250,9 +246,7 @@ Remember: every product and user base is different. What works for one company m
     slug: 'growth-metrics-b2b-saas',
     excerpt:
       'Cut through the noise and focus on the metrics that truly drive sustainable growth in B2B SaaS businesses.',
-    content: `# Growth Metrics That Actually Matter for B2B SaaS
-
-In the world of B2B SaaS, it's easy to get lost in a sea of metrics. While data is crucial for growth, tracking the wrong metrics can lead you astray. This guide focuses on the essential metrics that actually drive sustainable growth.
+    content: `In the world of B2B SaaS, it's easy to get lost in a sea of metrics. While data is crucial for growth, tracking the wrong metrics can lead you astray. This guide focuses on the essential metrics that actually drive sustainable growth.
 
 ## The Hierarchy of SaaS Metrics
 

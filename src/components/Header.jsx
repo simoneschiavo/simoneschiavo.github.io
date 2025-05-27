@@ -71,7 +71,7 @@ const Header = () => {
               to="/"
               className="text-xl font-bold text-white hover:text-zinc-300 transition-colors duration-200"
             >
-              Z
+              S<sup>2</sup>
             </Link>
           </div>
 

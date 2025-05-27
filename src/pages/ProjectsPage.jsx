@@ -130,7 +130,7 @@ const ProjectsPage = () => {
 
             {/* Call to Action */}
             <div className="mt-16 text-center">
-              <h2 className="text-2xl font-bold mb-4 gradient-text-purple">
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Interested in collaborating?
               </h2>
               <p className="text-zinc-400 mb-6 max-w-2xl mx-auto">
@@ -139,7 +139,7 @@ const ProjectsPage = () => {
               </p>
               <a
                 href="mailto:simone.schiavo@example.com"
-                className="inline-flex items-center px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-zinc-200 transition-colors duration-200"
+                className="btn-white inline-flex items-center px-6 py-3 font-medium rounded-lg transition-all duration-200 hover:scale-105"
               >
                 Get in Touch
               </a>
