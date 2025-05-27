@@ -58,19 +58,6 @@ const AboutPage = () => {
 
                 <section>
                   <h2 className="text-2xl font-bold mb-4 text-white">
-                    Philosophy
-                  </h2>
-                  <p className="text-zinc-300 leading-relaxed">
-                    I believe that sustainable growth comes from deeply
-                    understanding your users and building products that deliver
-                    immediate value. My approach combines quantitative analysis
-                    with qualitative insights to create growth strategies that
-                    are both scalable and user-centric.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold mb-4 text-white">
                     Let's Connect
                   </h2>
                   <p className="text-zinc-300 leading-relaxed mb-6">
