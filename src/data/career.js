@@ -7,15 +7,34 @@
 
 export const careerExperiences = [
   {
-    id: 'klaviyo-2024',
-    title: 'Senior Frontend Engineer, Accessibility',
-    company: 'Klaviyo',
-    companyUrl: 'https://www.klaviyo.com',
-    startDate: '2024',
+    id: 'dealfront-leadfeeder-2022',
+    title: 'Senior Growth Manager',
+    company: 'Dealfront / Leadfeeder',
+    companyUrl: 'https://www.dealfront.com',
+    startDate: 'January 2022',
     endDate: 'Present',
+    location: 'Remote',
     description:
-      "Build and maintain critical components used to construct Klaviyo's frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility.",
-    skills: ['JavaScript', 'TypeScript', 'React', 'Storybook'],
+      'Led and mentored a team of growth marketers to achieve excellent results across CRO, lifecycle marketing, and product marketing. Owned activation metrics for website and 3 products. Improved Leadfeeder onboarding metrics by 50%+ through compounding optimizations to the signup and onboarding experience. Increased PQL to Purchase by 2% absolute by accelerating time-to-value for core user segments with pre-built experiences. Generated 500+ incremental leads per month from data-driven experiments on key website pages.',
+    previousRole: {
+      title: 'Senior Lifecycle Marketing Manager',
+      achievements: [
+        'Improved tracker installation rate by 4% leveraging a mix of in-app and email reactivation activities',
+        'Increased free to paid conversion rate by 20% YoY experimenting with purchase triggers inside the app',
+        'Defined onboarding OKRs and created the reports and dashboards to monitor them in Metabase',
+        'Deployed 2 tools for A/B testing and in-app messaging that allowed our team to reach our goals and reduce dependencies on the dev team',
+      ],
+    },
+    skills: [
+      'Growth Marketing',
+      'CRO',
+      'Lifecycle Marketing',
+      'Product Marketing',
+      'A/B Testing',
+      'Metabase',
+      'Data Analysis',
+      'Team Leadership',
+    ],
   },
   {
     id: 'upstatement-2018',

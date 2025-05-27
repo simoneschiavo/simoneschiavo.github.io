@@ -7,7 +7,9 @@ const CareerCard = ({ experience }) => {
     companyUrl,
     startDate,
     endDate,
+    location,
     description,
+    previousRole,
     skills,
   } = experience;
 
@@ -28,11 +30,33 @@ const CareerCard = ({ experience }) => {
           <span className="text-zinc-400 hidden sm:inline">•</span>
           <span className="text-zinc-400 text-sm">
             {startDate} - {endDate}
+            {location && `, ${location}`}
           </span>
         </div>
       </div>
 
       <p className="text-zinc-300 leading-relaxed mb-4">{description}</p>
+
+      {previousRole && (
+        <div className="mb-4 p-3 bg-zinc-900/50 rounded-lg border border-zinc-800">
+          <h4 className="text-sm font-medium text-white mb-2">
+            {previousRole.title}
+          </h4>
+          <ul className="space-y-1">
+            {previousRole.achievements.map((achievement, index) => (
+              <li
+                key={index}
+                className="text-zinc-300 text-sm leading-relaxed flex items-start"
+              >
+                <span className="text-zinc-500 mr-2 mt-1.5 flex-shrink-0">
+                  •
+                </span>
+                <span>{achievement}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <div className="flex flex-wrap gap-2">
         {skills.map((skill, index) => (
