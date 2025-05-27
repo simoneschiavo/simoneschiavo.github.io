@@ -39,8 +39,10 @@ const CareerCard = ({ experience }) => {
         <ul className="text-zinc-300 leading-relaxed mb-4 space-y-2">
           {description.map((item, index) => (
             <li key={index} className="flex items-start">
-              <span className="text-zinc-500 mr-2 mt-1.5 flex-shrink-0">•</span>
-              <span>{item}</span>
+              <span className="text-zinc-500 mr-3 mt-0.5 flex-shrink-0 text-lg leading-none">
+                •
+              </span>
+              <span className="flex-1">{item}</span>
             </li>
           ))}
         </ul>
