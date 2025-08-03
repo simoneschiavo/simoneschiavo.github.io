@@ -14,90 +14,113 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center relative overflow-hidden"
+      className="min-h-screen flex items-center relative overflow-hidden bg-black"
       aria-labelledby="hero-heading"
       role="banner"
     >
-      {/* Background Elements */}
+      {/* Resend-inspired background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-[0.02]">
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5"></div>
+
+        {/* Animated grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
           <div
             className="absolute inset-0"
             style={{
               backgroundImage: `
-              linear-gradient(rgba(100, 255, 218, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(100, 255, 218, 0.1) 1px, transparent 1px)
+              linear-gradient(rgba(0, 163, 255, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 163, 255, 0.1) 1px, transparent 1px)
             `,
-              backgroundSize: '50px 50px',
+              backgroundSize: '60px 60px',
             }}
           ></div>
         </div>
 
-        {/* Floating geometric shapes */}
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 opacity-[0.03] hero-bg-element">
-          <div className="w-full h-full border border-green/20 rounded-full"></div>
+        {/* Floating geometric shapes with Resend colors */}
+        <div className="absolute top-1/4 right-1/4 w-72 h-72 opacity-[0.02] animate-pulse">
+          <div className="w-full h-full border border-blue-500/20 rounded-full"></div>
         </div>
-        <div className="absolute bottom-1/3 left-1/4 w-32 h-32 opacity-[0.05] hero-bg-element">
-          <div className="w-full h-full border border-green/30 rotate-45"></div>
+        <div
+          className="absolute bottom-1/3 left-1/4 w-40 h-40 opacity-[0.03] animate-pulse"
+          style={{ animationDelay: '1s' }}
+        >
+          <div className="w-full h-full border border-purple-500/30 rotate-45"></div>
         </div>
-        <div className="absolute top-1/2 right-1/6 w-16 h-16 opacity-[0.04] hero-bg-element">
-          <div className="w-full h-full bg-green/10 rounded-lg rotate-12"></div>
+        <div
+          className="absolute top-1/2 right-1/6 w-20 h-20 opacity-[0.04] animate-pulse"
+          style={{ animationDelay: '2s' }}
+        >
+          <div className="w-full h-full bg-blue-500/10 rounded-xl rotate-12"></div>
+        </div>
+
+        {/* Additional floating elements */}
+        <div
+          className="absolute top-1/3 left-1/6 w-16 h-16 opacity-[0.02] animate-pulse"
+          style={{ animationDelay: '0.5s' }}
+        >
+          <div className="w-full h-full bg-purple-500/10 rounded-lg"></div>
+        </div>
+        <div
+          className="absolute bottom-1/4 right-1/3 w-24 h-24 opacity-[0.03] animate-pulse"
+          style={{ animationDelay: '1.5s' }}
+        >
+          <div className="w-full h-full border border-blue-500/15 rounded-full"></div>
         </div>
       </div>
 
       <div className="container-narrow relative z-10">
         <div className="max-w-none">
-          {/* Content Container with enhanced spacing */}
-          <div className="space-y-6 sm:space-y-8 hero-content-spacing">
-            {/* Greeting */}
+          {/* Content Container with Resend-inspired spacing */}
+          <div className="space-y-8 sm:space-y-10">
+            {/* Greeting with Resend blue accent */}
             <div className="animate-fade-in-up">
-              <p className="hero-greeting">Hi, my name is</p>
+              <p className="hero-greeting font-semibold tracking-wide">
+                Hi, my name is
+              </p>
             </div>
 
-            {/* Name with enhanced styling */}
+            {/* Name with Resend-inspired typography */}
             <div
               className="animate-fade-in-up"
               style={{ animationDelay: '0.1s' }}
             >
               <h1
                 id="hero-heading"
-                className="hero-name hero-name-shadow relative"
+                className="hero-name font-black tracking-tight"
               >
-                <span className="relative z-10">{personalInfo.name}.</span>
-                {/* Subtle text shadow effect */}
-                <span
-                  className="absolute inset-0 text-green/10 blur-sm"
-                  aria-hidden="true"
-                >
-                  {personalInfo.name}.
-                </span>
+                {personalInfo.name}.
               </h1>
             </div>
 
-            {/* Tagline with enhanced spacing */}
+            {/* Tagline with improved typography */}
             <div
               className="animate-fade-in-up"
               style={{ animationDelay: '0.2s' }}
             >
-              <h2 className="hero-tagline">{personalInfo.tagline}</h2>
+              <h2 className="hero-tagline font-semibold tracking-wide">
+                {personalInfo.tagline}
+              </h2>
             </div>
 
-            {/* Description with better container */}
+            {/* Description with Resend-inspired styling */}
             <div
               className="animate-fade-in-up"
               style={{ animationDelay: '0.3s' }}
             >
-              <div className="max-w-lg">
-                <p id="hero-description" className="hero-description">
+              <div className="max-w-2xl">
+                <p
+                  id="hero-description"
+                  className="hero-description text-gray-400 leading-relaxed"
+                >
                   {personalInfo.description}
                 </p>
               </div>
             </div>
 
-            {/* Call to Action with enhanced styling */}
+            {/* Call to Action with Resend button styling */}
             <div
-              className="animate-fade-in-up pt-4 sm:pt-6"
+              className="animate-fade-in-up pt-6 sm:pt-8"
               style={{ animationDelay: '0.4s' }}
             >
               <a
@@ -109,16 +132,16 @@ const Hero = () => {
                     handleNavClick(e, '#about');
                   }
                 }}
-                className="btn group relative overflow-hidden hero-cta"
+                className="btn btn-primary group relative overflow-hidden"
                 role="button"
                 aria-describedby="hero-description"
               >
-                <span className="relative z-10 flex items-center">
+                <span className="relative z-10 flex items-center font-bold">
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     Get to know me
                   </span>
                   <svg
-                    className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                    className="w-5 h-5 ml-3 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -137,7 +160,7 @@ const Hero = () => {
 
             {/* Social Links - Mobile Only with enhanced spacing */}
             <div
-              className="pt-8 sm:pt-12 lg:hidden animate-fade-in-up"
+              className="pt-10 sm:pt-12 lg:hidden animate-fade-in-up"
               style={{ animationDelay: '0.5s' }}
             >
               <SocialLinks size="large" />
@@ -146,17 +169,17 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
+      {/* Enhanced Scroll Indicator with Resend styling */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="flex flex-col items-center space-y-2">
-          <div className="w-px h-16 bg-gradient-to-b from-transparent via-slate to-transparent opacity-50"></div>
+        <div className="flex flex-col items-center space-y-3">
+          <div className="w-px h-20 bg-gradient-to-b from-transparent via-blue-500/50 to-transparent opacity-60"></div>
           <button
             onClick={e => handleNavClick(e, '#about')}
-            className="text-slate hover:text-green transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green/50 rounded-full p-2 hover:transform hover:scale-110 animate-bounce"
+            className="text-gray-400 hover:text-blue-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 rounded-full p-3 hover:transform hover:scale-110 animate-bounce hover:bg-gray-900/50"
             aria-label="Scroll to about section"
           >
             <svg
-              className="w-5 h-5"
+              className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

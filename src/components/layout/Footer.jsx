@@ -13,27 +13,28 @@ const Footer = () => {
   };
 
   return (
-    <footer className="section-spacing bg-light-navy/50" role="contentinfo">
+    <footer
+      className="section-spacing bg-gray-900/50 border-t border-gray-800/50"
+      role="contentinfo"
+    >
       <div className="container-narrow">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
           {/* Contact Information */}
-          <div className="space-y-4">
-            <h3 className="text-lightest-slate font-semibold text-lg mb-4">
-              Get In Touch
-            </h3>
-            <p className="text-slate text-sm leading-relaxed">
+          <div className="space-y-6">
+            <h3 className="text-white font-bold text-xl mb-6">Get In Touch</h3>
+            <p className="text-gray-300 text-base leading-relaxed">
               I'm always interested in new opportunities and exciting projects.
               Whether you have a question or just want to say hi, feel free to
               reach out!
             </p>
-            <div className="space-y-2">
+            <div className="space-y-4">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="flex items-center text-slate hover:text-green transition-colors duration-300 text-sm group"
+                className="flex items-center text-gray-300 hover:text-blue-500 transition-all duration-300 text-base group"
               >
                 <svg
-                  className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300"
+                  className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -48,9 +49,9 @@ const Footer = () => {
                 </svg>
                 {personalInfo.email}
               </a>
-              <div className="flex items-center text-slate text-sm">
+              <div className="flex items-center text-gray-300 text-base">
                 <svg
-                  className="w-4 h-4 mr-2"
+                  className="w-5 h-5 mr-3"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -75,11 +76,9 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-lightest-slate font-semibold text-lg mb-4">
-              Quick Links
-            </h3>
-            <nav className="space-y-2">
+          <div className="space-y-6">
+            <h3 className="text-white font-bold text-xl mb-6">Quick Links</h3>
+            <nav className="space-y-4">
               {[
                 { href: '#about', label: 'About' },
                 { href: '#experience', label: 'Experience' },
@@ -94,7 +93,7 @@ const Footer = () => {
                     const sectionId = link.href.replace('#', '');
                     smoothScrollTo(sectionId, 800, 80);
                   }}
-                  className="block text-slate hover:text-green transition-colors duration-300 text-sm hover:translate-x-1 transform transition-transform"
+                  className="block text-gray-300 hover:text-blue-500 transition-all duration-300 text-base hover:translate-x-2 transform font-medium"
                 >
                   {link.label}
                 </a>
@@ -103,7 +102,7 @@ const Footer = () => {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-slate hover:text-green transition-colors duration-300 text-sm hover:translate-x-1 transform transition-transform"
+                className="block text-gray-300 hover:text-blue-500 transition-all duration-300 text-base hover:translate-x-2 transform font-medium"
               >
                 Resume
               </a>
@@ -111,11 +110,9 @@ const Footer = () => {
           </div>
 
           {/* Social & Connect */}
-          <div className="space-y-4">
-            <h3 className="text-lightest-slate font-semibold text-lg mb-4">
-              Connect
-            </h3>
-            <p className="text-slate text-sm leading-relaxed mb-4">
+          <div className="space-y-6">
+            <h3 className="text-white font-bold text-xl mb-6">Connect</h3>
+            <p className="text-gray-300 text-base leading-relaxed mb-6">
               Follow my journey and connect with me on social media for the
               latest updates on growth marketing insights.
             </p>
@@ -129,40 +126,47 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-lightest-navy/20 pt-8">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+        <div className="border-t border-gray-800/50 pt-12">
+          <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
             {/* Attribution */}
             <div className="text-center md:text-left">
-              <p className="text-slate text-sm">
+              <p className="text-gray-400 text-base font-medium">
                 © {currentYear} {personalInfo.name}. All rights reserved.
               </p>
-              <p className="text-slate text-xs mt-1">
-                Built with <span className="text-green">React</span> &{' '}
-                <span className="text-green">Tailwind CSS</span>. Deployed on{' '}
-                <span className="text-green">GitHub Pages</span>.
+              <p className="text-gray-500 text-sm mt-2">
+                Built with{' '}
+                <span className="text-blue-500 font-semibold">React</span> &{' '}
+                <span className="text-blue-500 font-semibold">
+                  Tailwind CSS
+                </span>
+                . Deployed on{' '}
+                <span className="text-blue-500 font-semibold">
+                  GitHub Pages
+                </span>
+                .
               </p>
             </div>
 
             {/* Design Credit */}
             <div className="text-center md:text-right">
-              <p className="text-slate text-xs">
+              <p className="text-gray-500 text-sm">
                 Design inspired by{' '}
                 <a
-                  href="https://brittanychiang.com"
+                  href="https://resend.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-green hover:text-green/80 transition-colors duration-300"
+                  className="text-blue-500 hover:text-blue-400 transition-colors duration-300 font-semibold"
                 >
-                  Brittany Chiang
+                  Resend
                 </a>
               </p>
               <button
                 onClick={handleScrollToTop}
-                className="text-slate hover:text-green transition-colors duration-300 text-xs mt-1 flex items-center mx-auto md:mx-0 group"
+                className="text-gray-400 hover:text-blue-500 transition-all duration-300 text-sm mt-2 flex items-center mx-auto md:mx-0 group font-medium"
               >
                 <span>Back to top</span>
                 <svg
-                  className="w-3 h-3 ml-1 group-hover:-translate-y-1 transition-transform duration-300"
+                  className="w-4 h-4 ml-2 group-hover:-translate-y-1 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -181,10 +185,10 @@ const Footer = () => {
         </div>
 
         {/* Fun Footer Message */}
-        <div className="text-center mt-8 pt-8 border-t border-lightest-navy/10">
-          <p className="text-slate text-xs font-mono">
-            <span className="text-green">console.log</span>("Thanks for
-            visiting! 🚀")
+        <div className="text-center mt-12 pt-8 border-t border-gray-800/30">
+          <p className="text-gray-500 text-sm font-medium">
+            <span className="text-blue-500 font-semibold">console.log</span>
+            ("Thanks for visiting! 🚀")
           </p>
         </div>
       </div>

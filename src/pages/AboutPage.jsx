@@ -68,13 +68,13 @@ const AboutPage = () => {
                   <div className="flex flex-wrap gap-4">
                     <a
                       href="mailto:simoneschiavo@icloud.com"
-                      className="btn-white inline-flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200 hover:scale-105"
+                      className="btn btn-primary inline-flex items-center"
                     >
                       Get in Touch
                     </a>
                     <a
                       href="https://www.linkedin.com/in/simone-schiavo/"
-                      className="inline-flex items-center px-4 py-2 border border-zinc-600 text-white font-medium rounded-lg hover:border-white transition-colors duration-200"
+                      className="btn btn-primary inline-flex items-center"
                     >
                       LinkedIn
                     </a>

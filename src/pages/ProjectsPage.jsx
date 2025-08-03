@@ -139,7 +139,7 @@ const ProjectsPage = () => {
               </p>
               <a
                 href="mailto:simone.schiavo@example.com"
-                className="btn-white inline-flex items-center px-6 py-3 font-medium rounded-lg transition-all duration-200 hover:scale-105"
+                className="btn btn-primary inline-flex items-center"
               >
                 Get in Touch
               </a>

@@ -116,6 +116,9 @@ const Header = () => {
     const sectionId = targetId.replace('#', '');
     smoothScrollTo(sectionId, 800, 80);
     setIsMenuOpen(false); // Close mobile menu
+
+    // Clear focus from the clicked element
+    e.target.blur();
   };
 
   // Close mobile menu when clicking on a link
@@ -124,47 +127,47 @@ const Header = () => {
   };
 
   const navLinks = [
-    { href: '#about', label: '01. About', id: 'about' },
-    { href: '#experience', label: '02. Experience', id: 'experience' },
-    { href: '#projects', label: '03. Projects', id: 'projects' },
-    { href: '#writing', label: '04. Writing', id: 'writing' },
+    { href: '#about', label: 'About', id: 'about' },
+    { href: '#experience', label: 'Experience', id: 'experience' },
+    { href: '#projects', label: 'Projects', id: 'projects' },
+    { href: '#writing', label: 'Writing', id: 'writing' },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-navy/95 backdrop-blur-md shadow-lg'
-          : 'bg-navy/90 backdrop-blur-sm'
+          ? 'bg-black/95 backdrop-blur-md border-b border-gray-800/50'
+          : 'bg-black/90 backdrop-blur-sm'
       }`}
       role="banner"
     >
       <nav
         id="navigation"
-        className="container-narrow py-3 sm:py-4"
+        className="container-narrow py-4 sm:py-5"
         role="navigation"
         aria-label="Main navigation"
       >
         <div className="flex items-center justify-between">
-          {/* Logo/Name */}
-          <div className="text-green font-mono text-sm hover:text-green/80 transition-colors duration-300">
+          {/* Logo/Name with Resend styling */}
+          <div className="text-blue-500 font-bold text-lg hover:text-blue-400 transition-colors duration-300">
             <a href="#hero" onClick={e => handleNavClick(e, '#hero')}>
               {personalInfo.name}
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            <ul className="flex items-center space-x-6 lg:space-x-8">
+          <div className="hidden md:flex items-center space-x-8 lg:space-x-10">
+            <ul className="flex items-center space-x-8 lg:space-x-10">
               {navLinks.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
                     onClick={e => handleNavClick(e, link.href)}
-                    className={`transition-colors duration-300 font-mono text-sm ${
+                    className={`nav-link transition-all duration-300 font-semibold text-sm tracking-wide ${
                       activeSection === link.id
-                        ? 'text-green'
-                        : 'text-slate hover:text-green'
+                        ? 'text-blue-500'
+                        : 'text-gray-400 hover:text-white'
                     }`}
                   >
                     {link.label}
@@ -174,7 +177,7 @@ const Header = () => {
               <li>
                 <a
                   href="/resume.pdf"
-                  className="btn"
+                  className="btn btn-secondary text-sm px-6 py-2"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -184,15 +187,15 @@ const Header = () => {
             </ul>
 
             {/* Desktop Social Links */}
-            <div className="border-l border-lightest-navy/20 pl-6">
+            <div className="border-l border-gray-700/50 pl-8">
               <SocialLinks size="medium" />
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button with Resend styling */}
           <button
             ref={buttonRef}
-            className="md:hidden relative flex flex-col items-center justify-center w-10 h-10 rounded-md transition-all duration-300 hover:bg-green/10 focus:outline-none focus:ring-2 focus:ring-green/50"
+            className="md:hidden relative flex flex-col items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 hover:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
@@ -203,17 +206,17 @@ const Header = () => {
             </span>
             <div className="relative w-6 h-6 flex flex-col justify-center items-center">
               <span
-                className={`absolute block w-6 h-0.5 bg-green transition-all duration-300 ease-in-out ${
+                className={`absolute block w-6 h-0.5 bg-blue-500 transition-all duration-300 ease-in-out ${
                   isMenuOpen ? 'rotate-45' : '-translate-y-1.5'
                 }`}
               />
               <span
-                className={`absolute block w-6 h-0.5 bg-green transition-all duration-300 ease-in-out ${
+                className={`absolute block w-6 h-0.5 bg-blue-500 transition-all duration-300 ease-in-out ${
                   isMenuOpen ? 'opacity-0' : 'opacity-100'
                 }`}
               />
               <span
-                className={`absolute block w-6 h-0.5 bg-green transition-all duration-300 ease-in-out ${
+                className={`absolute block w-6 h-0.5 bg-blue-500 transition-all duration-300 ease-in-out ${
                   isMenuOpen ? '-rotate-45' : 'translate-y-1.5'
                 }`}
               />
@@ -232,7 +235,7 @@ const Header = () => {
         >
           {/* Backdrop */}
           <div
-            className={`absolute inset-0 bg-navy/95 backdrop-blur-md transition-opacity duration-300 ${
+            className={`absolute inset-0 bg-black/95 backdrop-blur-md transition-opacity duration-300 ${
               isMenuOpen ? 'opacity-100' : 'opacity-0'
             }`}
             onClick={() => setIsMenuOpen(false)}
@@ -249,7 +252,7 @@ const Header = () => {
             }`}
           >
             <nav className="text-center">
-              <ul className="space-y-8">
+              <ul className="space-y-10">
                 {navLinks.map((link, index) => (
                   <li
                     key={index}
@@ -267,10 +270,10 @@ const Header = () => {
                     <a
                       href={link.href}
                       onClick={e => handleNavClick(e, link.href)}
-                      className={`block text-2xl sm:text-3xl font-mono transition-all duration-300 hover:transform hover:scale-105 ${
+                      className={`block text-3xl sm:text-4xl font-bold transition-all duration-300 hover:transform hover:scale-105 ${
                         activeSection === link.id
-                          ? 'text-green'
-                          : 'text-lightest-slate hover:text-green'
+                          ? 'text-blue-500'
+                          : 'text-white hover:text-blue-400'
                       }`}
                     >
                       {link.label}
@@ -291,7 +294,7 @@ const Header = () => {
                 >
                   <a
                     href="/resume.pdf"
-                    className="btn text-lg px-8 py-4 mt-8 inline-block hover:transform hover:scale-105"
+                    className="btn btn-secondary text-lg px-10 py-4 mt-12 inline-block hover:transform hover:scale-105"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={handleLinkClick}
@@ -304,7 +307,7 @@ const Header = () => {
 
             {/* Social Links in Mobile Menu */}
             <div
-              className={`absolute bottom-12 left-1/2 transform -translate-x-1/2 transition-all duration-300 ease-out ${
+              className={`absolute bottom-16 left-1/2 transform -translate-x-1/2 transition-all duration-300 ease-out ${
                 isMenuOpen
                   ? 'translate-y-0 opacity-100'
                   : 'translate-y-4 opacity-0'
