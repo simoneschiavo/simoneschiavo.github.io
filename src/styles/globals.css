@@ -25,10 +25,25 @@
   --color-pink: #ec4899;
 
   /* Gradients */
-  --gradient-blue: linear-gradient(135deg, #00a3ff 0%, #0088cc 100%);
-  --gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-  --gradient-pink: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-  --gradient-green: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-blue: linear-gradient(135deg, #00a3ff 0%, #0066cc 100%);
+  --gradient-purple: linear-gradient(
+    135deg,
+    #a855f7 0%,
+    #7c3aed 50%,
+    #4c1d95 100%
+  );
+  --gradient-pink: linear-gradient(
+    135deg,
+    #ec4899 0%,
+    #be185d 50%,
+    #831843 100%
+  );
+  --gradient-green: linear-gradient(
+    135deg,
+    #10b981 0%,
+    #047857 50%,
+    #064e3b 100%
+  );
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
