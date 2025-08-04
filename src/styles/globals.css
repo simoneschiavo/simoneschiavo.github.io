@@ -267,7 +267,7 @@ a:focus {
   box-shadow: var(--shadow-md) !important;
   font-weight: 700 !important;
   border: 3px solid #282828 !important;
-  border-radius: 0.5rem !important;
+  border-radius: 1rem !important;
 }
 
 .btn-primary:hover {

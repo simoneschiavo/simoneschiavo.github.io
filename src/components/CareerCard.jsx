@@ -5,6 +5,7 @@ const CareerCard = ({ experience }) => {
     title,
     company,
     companyUrl,
+    logo,
     startDate,
     endDate,
     location,
@@ -21,14 +22,23 @@ const CareerCard = ({ experience }) => {
         </h3>
 
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-4">
-          <a
-            href={companyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-400 transition-colors duration-300 font-semibold text-lg"
-          >
-            {company}
-          </a>
+          <div className="flex items-center gap-3">
+            {logo && (
+              <img
+                src={logo}
+                alt={`${company} logo`}
+                className="h-8 w-auto object-contain bg-white rounded-md p-1"
+              />
+            )}
+            <a
+              href={companyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-400 transition-colors duration-300 font-semibold text-lg"
+            >
+              {company}
+            </a>
+          </div>
           <span className="text-gray-600 hidden sm:inline">•</span>
           <span className="text-gray-400 text-base font-medium">
             {startDate} - {endDate}
