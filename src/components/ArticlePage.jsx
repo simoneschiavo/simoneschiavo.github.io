@@ -64,9 +64,6 @@ const ArticlePage = () => {
             <p className="text-zinc-400 mb-8">
               The article you're looking for doesn't exist or has been moved.
             </p>
-            <Link to="/" className="btn btn-primary">
-              ← Back to Home
-            </Link>
           </div>
         </div>
       </div>
@@ -79,13 +76,6 @@ const ArticlePage = () => {
         <div className="container-responsive">
           {/* Article Header */}
           <header className="mb-12 max-w-3xl mx-auto">
-            <Link
-              to="/"
-              className="inline-flex items-center text-zinc-400 hover:text-white transition-colors duration-200 mb-8"
-            >
-              ← Back to Home
-            </Link>
-
             <div className="flex flex-wrap gap-2 mb-4">
               {article.tags.map(tag => (
                 <span key={tag} className="project-tech text-xs">

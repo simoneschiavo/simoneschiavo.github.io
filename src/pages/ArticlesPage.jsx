@@ -8,14 +8,6 @@ const ArticlesPage = () => {
       <div className="section-spacing">
         <div className="container-responsive">
           <div className="max-w-6xl mx-auto">
-            {/* Back to home */}
-            <Link
-              to="/"
-              className="inline-flex items-center text-zinc-400 hover:text-white transition-colors duration-200 mb-8"
-            >
-              ← Back to Home
-            </Link>
-
             {/* Page Header */}
             <header className="mb-8 text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 gradient-text-blue">

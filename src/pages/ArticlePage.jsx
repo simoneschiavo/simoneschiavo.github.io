@@ -15,12 +15,6 @@ const ArticlePage = () => {
           <p className="text-gray-600 mb-8">
             The article you're looking for doesn't exist.
           </p>
-          <Link
-            to="/"
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors"
-          >
-            ← Back to home
-          </Link>
         </div>
       </div>
     );
@@ -29,13 +23,6 @@ const ArticlePage = () => {
   return (
     <article className="max-w-4xl mx-auto px-6 py-20">
       <div className="mb-8">
-        <Link
-          to="/"
-          className="inline-flex items-center text-gray-600 hover:text-gray-700 transition-colors mb-8"
-        >
-          ← Back to home
-        </Link>
-
         <header className="mb-8">
           <h1 className="text-4xl font-bold mb-4">{article.title}</h1>
           <div className="flex items-center text-gray-600">
