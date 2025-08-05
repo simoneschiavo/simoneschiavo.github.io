@@ -25,24 +25,35 @@
   --color-pink: #ec4899;
 
   /* Gradients */
-  --gradient-blue: linear-gradient(135deg, #00a3ff 0%, #0066cc 100%);
+  --gradient-blue: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #00a3ff 50%,
+    #0066cc 100%
+  );
   --gradient-purple: linear-gradient(
     135deg,
-    #a855f7 0%,
-    #7c3aed 50%,
+    #ffffff 0%,
+    #a855f7 50%,
     #4c1d95 100%
   );
   --gradient-pink: linear-gradient(
     135deg,
-    #ec4899 0%,
-    #be185d 50%,
+    #ffffff 0%,
+    #ec4899 50%,
     #831843 100%
   );
   --gradient-green: linear-gradient(
     135deg,
-    #10b981 0%,
-    #047857 50%,
+    #ffffff 0%,
+    #10b981 50%,
     #064e3b 100%
+  );
+  --gradient-yellow: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #fbbf24 50%,
+    #d97706 100%
   );
 
   /* Shadows */
@@ -349,6 +360,13 @@ a:focus {
 
 .gradient-text-green {
   background: var(--gradient-green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-yellow {
+  background: var(--gradient-yellow);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
