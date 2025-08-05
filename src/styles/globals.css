@@ -275,7 +275,7 @@ a:focus {
   background: linear-gradient(
     135deg,
     var(--color-white) 0%,
-    var(--color-gray-300) 100%
+    var(--color-gray-600) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
