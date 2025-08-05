@@ -8,7 +8,7 @@ const AboutPage = () => {
     <div className="min-h-screen bg-black pt-16">
       <div className="section-spacing">
         <div className="container-responsive">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             {/* Back to home */}
             <Link
               to="/"
@@ -31,27 +31,6 @@ const AboutPage = () => {
             {/* Content */}
             <div className="prose prose-invert prose-lg max-w-none">
               <div className="space-y-8">
-                <section>
-                  <h2 className="text-2xl font-bold mb-4 text-white">
-                    Background
-                  </h2>
-                  <p className="text-zinc-300 leading-relaxed mb-4">
-                    I'm a Product Growth Professional with a passion for
-                    building scalable growth systems that drive meaningful
-                    business impact. I specialize in the intersection of product
-                    development and growth marketing, focusing on data-driven
-                    strategies that improve user acquisition, activation, and
-                    retention.
-                  </p>
-                  <p className="text-zinc-300 leading-relaxed">
-                    With extensive experience in B2B SaaS environments, I've
-                    helped companies transition from sales-led to product-led
-                    growth models, implement comprehensive analytics frameworks,
-                    and optimize conversion funnels across the entire customer
-                    journey.
-                  </p>
-                </section>
-
                 <CareerSection />
 
                 <CertificationsSection />
