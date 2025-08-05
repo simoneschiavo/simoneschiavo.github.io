@@ -11,6 +11,7 @@ import {
 } from '../data/articles.js';
 import { parseMarkdown } from '../utils/markdown.js';
 import { trackArticleRead } from '../utils/analytics.js';
+import InfoBox from './InfoBox.jsx';
 
 const ArticlePage = () => {
   const { slug } = useParams();
@@ -183,6 +184,17 @@ const ArticlePage = () => {
                       {children}
                     </a>
                   ),
+                  div: ({ className, children, ...props }) => {
+                    // Check if this is an info box
+                    if (className && className.includes('info-box')) {
+                      return <InfoBox>{children}</InfoBox>;
+                    }
+                    return (
+                      <div className={className} {...props}>
+                        {children}
+                      </div>
+                    );
+                  },
                 }}
               >
                 {markdownContent}

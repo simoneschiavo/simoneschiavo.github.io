@@ -7,6 +7,10 @@ tags: ['Product-Led Growth', 'B2B SaaS', 'Growth Strategy']
 
 Product-Led Growth (PLG) [has become](https://www.google.com) the dominant growth strategy for successful B2B SaaS companies. Unlike traditional sales-led approaches, PLG puts the product at the center of customer acquisition, activation, and expansion.
 
+<div class="info-box">
+Resend helps you manage warming up a dedicated IP and monitoring your performance. This is crucial for B2B SaaS companies implementing PLG strategies, as email deliverability directly impacts user activation and retention rates.
+</div>
+
 ## What is Product-Led Growth?
 
 Product-Led Growth is a business methodology where user acquisition, expansion, conversion, and retention are all driven primarily by the product itself. The product becomes the main vehicle to deliver value to customers.
