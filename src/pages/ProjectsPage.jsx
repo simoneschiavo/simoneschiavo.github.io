@@ -61,7 +61,7 @@ const ProjectsPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black pt-20">
+    <div className="min-h-screen bg-black pt-16">
       <div className="section-spacing">
         <div className="container-responsive">
           <div className="max-w-6xl mx-auto">
@@ -74,7 +74,7 @@ const ProjectsPage = () => {
             </Link>
 
             {/* Page Header */}
-            <header className="mb-12 text-center">
+            <header className="mb-8 text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 gradient-text-green">
                 Projects
               </h1>
@@ -85,7 +85,7 @@ const ProjectsPage = () => {
             </header>
 
             {/* Projects Grid */}
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2">
               {projects.map(project => (
                 <div key={project.id} className="project-card hover-lift">
                   <div className="flex items-start justify-between mb-4">

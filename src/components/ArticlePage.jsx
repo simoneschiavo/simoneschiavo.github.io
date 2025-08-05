@@ -20,7 +20,7 @@ const ArticlePage = () => {
 
   if (!article) {
     return (
-      <div className="min-h-screen bg-black pt-20">
+      <div className="min-h-screen bg-black pt-16">
         <div className="container-narrow">
           <div className="text-center py-20">
             <h1 className="text-4xl font-bold text-white mb-4">
@@ -39,7 +39,7 @@ const ArticlePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black pt-20">
+    <div className="min-h-screen bg-black pt-16">
       <article className="section-spacing">
         <div className="container-narrow">
           {/* Article Header */}

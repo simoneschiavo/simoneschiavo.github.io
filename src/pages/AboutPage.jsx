@@ -5,7 +5,7 @@ import CertificationsSection from '../components/CertificationsSection.jsx';
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-black pt-20">
+    <div className="min-h-screen bg-black pt-16">
       <div className="section-spacing">
         <div className="container-responsive">
           <div className="max-w-4xl mx-auto">
@@ -18,7 +18,7 @@ const AboutPage = () => {
             </Link>
 
             {/* Page Header */}
-            <header className="mb-12">
+            <header className="mb-8">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 gradient-text-purple">
                 About
               </h1>

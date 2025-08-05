@@ -2,16 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { processedArticles } from '../data/articles.js';
 
-const Articles = ({ showTitle = true }) => {
+const Articles = ({ showTitle = true, noSpacing = false }) => {
   return (
-    <section className="section-spacing">
+    <section className={noSpacing ? '' : 'section-spacing'}>
       <div className="container-responsive">
         {showTitle && (
           <h2 className="section-title text-center gradient-text-rainbow">
             Articles
           </h2>
         )}
-        <div className="grid grid-auto-fit gap-8">
+        <div className="grid grid-auto-fit gap-6">
           {processedArticles.map(article => (
             <article key={article.id} className="article-card hover-lift">
               <div className="flex flex-wrap gap-2 mb-3">
