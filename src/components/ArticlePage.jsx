@@ -1,16 +1,50 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
-import { getArticleBySlug, getRelatedArticles } from '../data/articles.js';
+import {
+  getArticleBySlug,
+  getRelatedArticles,
+  loadArticleContent,
+} from '../data/articles.js';
+import { parseMarkdown } from '../utils/markdown.js';
 import { trackArticleRead } from '../utils/analytics.js';
 
 const ArticlePage = () => {
   const { slug } = useParams();
-  const article = getArticleBySlug(slug);
+  const [article, setArticle] = useState(null);
+  const [markdownContent, setMarkdownContent] = useState('');
+  const [loading, setLoading] = useState(true);
+  const articleData = getArticleBySlug(slug);
   const relatedArticles = getRelatedArticles(slug);
+
+  useEffect(() => {
+    const loadArticle = async () => {
+      if (articleData && articleData.markdownFile) {
+        setLoading(true);
+        try {
+          const rawContent = await loadArticleContent(articleData.markdownFile);
+          if (rawContent) {
+            // Parse markdown to extract content without frontmatter
+            const { content } = parseMarkdown(rawContent);
+            setMarkdownContent(content);
+            setArticle(articleData);
+          }
+        } catch (error) {
+          console.error('Error loading article:', error);
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        setArticle(articleData);
+        setLoading(false);
+      }
+    };
+
+    loadArticle();
+  }, [articleData]);
 
   useEffect(() => {
     if (article) {
@@ -21,7 +55,7 @@ const ArticlePage = () => {
   if (!article) {
     return (
       <div className="min-h-screen bg-black pt-16">
-        <div className="container-narrow">
+        <div className="container-responsive">
           <div className="text-center py-20">
             <h1 className="text-4xl font-bold text-white mb-4">
               Article Not Found
@@ -39,11 +73,11 @@ const ArticlePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black pt-16">
+    <div className="min-h-screen bg-black pt-16 article-page">
       <article className="section-spacing">
-        <div className="container-narrow">
+        <div className="container-responsive">
           {/* Article Header */}
-          <header className="mb-12">
+          <header className="mb-12 max-w-3xl mx-auto">
             <Link
               to="/"
               className="inline-flex items-center text-zinc-400 hover:text-white transition-colors duration-200 mb-8"
@@ -59,7 +93,7 @@ const ArticlePage = () => {
               ))}
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-white">
+            <h1 className="font-bold mb-4 leading-tight text-white">
               {article.title}
             </h1>
 
@@ -71,87 +105,89 @@ const ArticlePage = () => {
           </header>
 
           {/* Article Content */}
-          <div className="prose prose-invert prose-lg max-w-none">
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeHighlight, rehypeRaw]}
-              components={{
-                h1: ({ children }) => (
-                  <h1 className="text-3xl font-bold text-white mb-6 mt-12 first:mt-0">
-                    {children}
-                  </h1>
-                ),
-                h2: ({ children }) => (
-                  <h2 className="text-2xl font-bold text-white mb-4 mt-10">
-                    {children}
-                  </h2>
-                ),
-                h3: ({ children }) => (
-                  <h3 className="text-xl font-semibold text-white mb-3 mt-8">
-                    {children}
-                  </h3>
-                ),
-                p: ({ children }) => (
-                  <p className="text-zinc-300 mb-4 leading-relaxed">
-                    {children}
-                  </p>
-                ),
-                ul: ({ children }) => (
-                  <ul className="text-zinc-300 mb-4 space-y-2 list-disc list-inside">
-                    {children}
-                  </ul>
-                ),
-                ol: ({ children }) => (
-                  <ol className="text-zinc-300 mb-4 space-y-2 list-decimal list-inside">
-                    {children}
-                  </ol>
-                ),
-                li: ({ children }) => (
-                  <li className="text-zinc-300">{children}</li>
-                ),
-                strong: ({ children }) => (
-                  <strong className="text-white font-semibold">
-                    {children}
-                  </strong>
-                ),
-                code: ({ inline, children }) =>
-                  inline ? (
-                    <code className="bg-zinc-800 text-zinc-200 px-1.5 py-0.5 rounded text-sm">
-                      {children}
-                    </code>
-                  ) : (
-                    <code className="block bg-zinc-900 text-zinc-200 p-4 rounded-lg overflow-x-auto">
-                      {children}
-                    </code>
+          <div className="prose prose-invert prose-lg max-w-3xl mx-auto">
+            {loading ? (
+              <div className="text-center py-12">
+                <div className="text-zinc-400">Loading article...</div>
+              </div>
+            ) : (
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeHighlight, rehypeRaw]}
+                components={{
+                  h1: ({ children }) => (
+                    <h1 className="text-white">{children}</h1>
                   ),
-                pre: ({ children }) => (
-                  <pre className="bg-zinc-900 p-4 rounded-lg overflow-x-auto mb-6">
-                    {children}
-                  </pre>
-                ),
-                blockquote: ({ children }) => (
-                  <blockquote className="border-l-4 border-zinc-600 pl-4 italic text-zinc-400 mb-4">
-                    {children}
-                  </blockquote>
-                ),
-                a: ({ href, children }) => (
-                  <a
-                    href={href}
-                    className="text-white hover:text-zinc-300 underline transition-colors duration-200"
-                    target={href?.startsWith('http') ? '_blank' : undefined}
-                    rel={
-                      href?.startsWith('http')
-                        ? 'noopener noreferrer'
-                        : undefined
-                    }
-                  >
-                    {children}
-                  </a>
-                ),
-              }}
-            >
-              {article.content}
-            </ReactMarkdown>
+                  h2: ({ children }) => (
+                    <h2 className="text-white article-content-h2">
+                      {children}
+                    </h2>
+                  ),
+                  h3: ({ children }) => (
+                    <h3 className="text-white">{children}</h3>
+                  ),
+                  p: ({ children }) => (
+                    <p className="text-zinc-300 mb-4 leading-relaxed">
+                      {children}
+                    </p>
+                  ),
+                  ul: ({ children }) => (
+                    <ul className="text-zinc-300 mb-4 space-y-2 list-disc list-inside">
+                      {children}
+                    </ul>
+                  ),
+                  ol: ({ children }) => (
+                    <ol className="text-zinc-300 mb-4 space-y-2 list-decimal list-inside">
+                      {children}
+                    </ol>
+                  ),
+                  li: ({ children }) => (
+                    <li className="text-zinc-300">{children}</li>
+                  ),
+                  strong: ({ children }) => (
+                    <strong className="text-white font-semibold">
+                      {children}
+                    </strong>
+                  ),
+                  code: ({ inline, children }) =>
+                    inline ? (
+                      <code className="bg-zinc-800 text-zinc-200 px-1.5 py-0.5 rounded text-sm">
+                        {children}
+                      </code>
+                    ) : (
+                      <code className="block bg-zinc-900 text-zinc-200 p-4 rounded-lg overflow-x-auto">
+                        {children}
+                      </code>
+                    ),
+                  pre: ({ children }) => (
+                    <pre className="bg-zinc-900 p-4 rounded-lg overflow-x-auto mb-6">
+                      {children}
+                    </pre>
+                  ),
+                  blockquote: ({ children }) => (
+                    <blockquote className="border-l-4 border-zinc-600 pl-4 italic text-zinc-400 mb-4">
+                      {children}
+                    </blockquote>
+                  ),
+                  a: ({ href, children }) => (
+                    <a
+                      href={href}
+                      className="text-zinc-300 underline hover:text-white transition-colors duration-200"
+                      target={href?.startsWith('http') ? '_blank' : undefined}
+                      rel={
+                        href?.startsWith('http')
+                          ? 'noopener noreferrer'
+                          : undefined
+                      }
+                    >
+                      {children}
+                    </a>
+                  ),
+                }}
+              >
+                {markdownContent}
+              </ReactMarkdown>
+            )}
           </div>
         </div>
       </article>
@@ -159,7 +195,7 @@ const ArticlePage = () => {
       {/* Related Articles */}
       {relatedArticles.length > 0 && (
         <section className="section-spacing-sm border-t border-zinc-800">
-          <div className="container-narrow">
+          <div className="container-responsive">
             <h2 className="text-2xl font-bold mb-8 text-white">
               Related Articles
             </h2>

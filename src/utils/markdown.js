@@ -14,7 +14,7 @@ marked.setOptions({
  * @returns {object} Processed article data
  */
 export const processMarkdown = markdownContent => {
-  const { data: frontmatter, content } = matter(markdownContent);
+  const { attributes: frontmatter, body: content } = fm(markdownContent);
 
   // Convert markdown to HTML
   const htmlContent = marked(content);
