@@ -1,7 +1,14 @@
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import posthog from 'posthog-js';
 import './styles/globals.css';
 import App from './App.jsx';
+
+// Initialize PostHog
+posthog.init(import.meta.env.VITE_PUBLIC_POSTHOG_KEY, {
+  api_host: import.meta.env.VITE_PUBLIC_POSTHOG_HOST,
+  person_profiles: 'identified_only',
+});
 
 // Error boundary component
 class ErrorBoundary extends React.Component {
