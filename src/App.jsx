@@ -81,13 +81,7 @@ function Footer({ theme, onToggleTheme }) {
     <footer className="site-footer">
       <small>
         &copy; {new Date().getFullYear()} Simone Schiavo.{' '}
-        <a
-          href="https://github.com/simoneschiavo/simoneschiavo.github.io"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Source code.
-        </a>{' '}
+        {' '}
         <button
           className="theme-toggle"
           onClick={onToggleTheme}
