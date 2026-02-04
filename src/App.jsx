@@ -1,171 +1,246 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Link,
   useLocation,
 } from 'react-router-dom';
-import Header from './components/Header.jsx';
-import ArticlePage from './components/ArticlePage.jsx';
-import AboutPage from './pages/AboutPage.jsx';
-import ArticlesPage from './pages/ArticlesPage.jsx';
-import ProjectsPage from './pages/ProjectsPage.jsx';
-import ScrollToTop from './components/ScrollToTop.jsx';
-import { personalInfo } from './data/content.js';
-import { trackWebVitals, trackPageView } from './utils/analytics.js';
 
-// Home page component - simplified to just hero
-const HomePage = () => {
-  return (
-    <div className="h-screen bg-black flex flex-col">
-      {/* Main Content - takes up available space */}
-      <main className="flex-1 flex items-center justify-center pt-16">
-        {/* Hero Section */}
-        <div className="container-responsive">
-          <div className="fade-in text-center">
-            <h1 className="hero-name">{personalInfo.name}</h1>
-            <p className="hero-title">{personalInfo.title}</p>
-            <p className="hero-description mx-auto">
-              {personalInfo.description}
-            </p>
+/* ── Theme toggle logic ─────────────────────────────────── */
 
-            {/* Learn More Button */}
-            <div className="mt-8">
-              <a
-                href="/about"
-                className="btn-primary inline-flex items-center px-6 py-3 font-medium rounded-lg transition-all duration-200 hover:scale-105"
-              >
-                Learn More
-                <svg
-                  className="w-4 h-4 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </main>
+function getSystemTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+}
 
-      {/* Footer - stays at bottom */}
-      <footer className="py-8">
-        <div className="container-responsive text-center">
-          <div className="footer-links">
-            <a
-              href="mailto:simoneschiavo@icloud.com"
-              className="footer-link social-link"
-            >
-              <span className="social-icon">
-                <svg
-                  className="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
-                  <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
-                </svg>
-              </span>
-              <span className="social-text">email</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/simone-schiavo/"
-              className="footer-link social-link"
-            >
-              <span className="social-icon">
-                <svg
-                  className="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </span>
-              <span className="social-text">linkedin</span>
-            </a>
-            <a
-              href="https://github.com/simoneschiavo"
-              className="footer-link social-link"
-            >
-              <span className="social-icon">
-                <svg
-                  className="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </span>
-              <span className="social-text">github</span>
-            </a>
-            <a
-              href="https://x.com/simoschiavo"
-              className="footer-link social-link"
-            >
-              <span className="social-icon">
-                <svg
-                  className="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </span>
-              <span className="social-text">x</span>
-            </a>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-};
+function useTheme() {
+  const [theme, setTheme] = useState(() => {
+    const stored = localStorage.getItem('theme');
+    return stored || getSystemTheme();
+  });
 
-// Analytics wrapper component
-const AnalyticsWrapper = ({ children }) => {
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const handler = (e) => {
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    };
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  const toggle = () => {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    setTheme(next);
+  };
+
+  return { theme, toggle };
+}
+
+/* ── Navigation ─────────────────────────────────────────── */
+
+const NAV_LINKS = [
+  { to: '/', label: 'Home' },
+  { to: '/writing', label: 'Writing' },
+  { to: '/projects', label: 'Projects' },
+];
+
+function Nav() {
   const location = useLocation();
 
-  useEffect(() => {
-    trackPageView(location.pathname);
-  }, [location]);
+  return (
+    <nav className="site-nav">
+      <ul>
+        {NAV_LINKS.map(({ to, label }) => (
+          <li key={to}>
+            <Link
+              to={to}
+              className={location.pathname === to ? 'active' : undefined}
+            >
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
 
-  return children;
-};
+/* ── Footer ─────────────────────────────────────────────── */
+
+function Footer({ theme, onToggleTheme }) {
+  return (
+    <footer className="site-footer">
+      <small>
+        &copy; {new Date().getFullYear()} Simone Schiavo.{' '}
+        <a
+          href="https://github.com/simoneschiavo/simoneschiavo.github.io"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Source code.
+        </a>{' '}
+        <button
+          className="theme-toggle"
+          onClick={onToggleTheme}
+          aria-label="Toggle theme"
+        >
+          {theme === 'dark' ? '\u263C' : '\u263E'}
+        </button>
+      </small>
+    </footer>
+  );
+}
+
+/* ── Scroll to top on route change ──────────────────────── */
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+/* ── Home page ──────────────────────────────────────────── */
+
+function HomePage() {
+  return (
+    <div className="page-content with-sidebar">
+      <div className="main-content">
+        <h1>Simone Schiavo</h1>
+        <p>
+          Experiment-led Growth PM who helps B2B companies grow faster: from
+          signup flows to monetization and retention. I love cracking hard
+          problems and building iterative solutions.
+        </p>
+
+        <div className="section-header">Currently</div>
+        <ul>
+          <li>Working on product growth and experimentation @ Leadfeeder</li>
+          <li>
+            Writing about growth strategy and product-led growth (coming soon)
+          </li>
+          <li>Building side projects</li>
+        </ul>
+
+        <div className="section-header">Previously</div>
+        <ul>
+          <li>
+            Growth &amp; Experimentation at{' '}
+            <a
+              href="https://www.dealfront.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Dealfront
+            </a>
+          </li>
+          <li>Growth &amp; Automation at BIP Consulting</li>
+          <li>
+            Growth at{' '}
+            <a href="https://www.soldo.com" target="_blank" rel="noreferrer">
+              Soldo
+            </a>
+          </li>
+          <li>PM at WAM</li>
+        </ul>
+
+        <div className="section-header">Interests</div>
+        <ul>
+          <li>Product-led growth</li>
+          <li>Growth modeling</li>
+          <li>Experimentation</li>
+          <li>AI-assisted workflows</li>
+          <li>Chess</li>
+          <li>Fantasy football</li>
+          <li>Sci-fi books</li>
+        </ul>
+      </div>
+
+      <aside className="sidebar">
+        <div className="sidebar-section">
+          <div className="sidebar-heading">Elsewhere</div>
+          <ul>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/simone-schiavo/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://x.com/simoschiavo"
+                target="_blank"
+                rel="noreferrer"
+              >
+                X / Twitter
+              </a>
+            </li>
+            <li>
+              <a href="mailto:simoneschiavo@icloud.com">Email</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  );
+}
+
+/* ── Writing page ───────────────────────────────────────── */
+
+function WritingPage() {
+  return (
+    <div className="page-content">
+      <h1>Writing</h1>
+      <p style={{ color: 'var(--text-secondary)' }}>
+        No posts yet. Check back soon.
+      </p>
+    </div>
+  );
+}
+
+/* ── Projects page ──────────────────────────────────────── */
+
+function ProjectsPage() {
+  return (
+    <div className="page-content">
+      <h1>Projects</h1>
+      <p style={{ color: 'var(--text-secondary)' }}>
+        No projects yet. Check back soon.
+      </p>
+    </div>
+  );
+}
+
+/* ── App ────────────────────────────────────────────────── */
 
 function App() {
-  useEffect(() => {
-    // Initialize performance tracking
-    trackWebVitals();
-  }, []);
+  const { theme, toggle } = useTheme();
 
   return (
     <Router>
       <ScrollToTop />
-      <AnalyticsWrapper>
-        <Header />
+      <div className="site-wrapper">
+        <Nav />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/articles" element={<ArticlesPage />} />
-          <Route path="/articles/:slug" element={<ArticlePage />} />
+          <Route path="/writing" element={<WritingPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
         </Routes>
-      </AnalyticsWrapper>
+        <Footer theme={theme} onToggleTheme={toggle} />
+      </div>
     </Router>
   );
 }
