@@ -5,7 +5,11 @@ import {
   Route,
   Link,
   useLocation,
+  useParams,
 } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { getAllPosts, getPostBySlug } from './lib/posts';
 
 /* ── Theme toggle logic ─────────────────────────────────── */
 
@@ -195,12 +199,100 @@ function HomePage() {
 /* ── Writing page ───────────────────────────────────────── */
 
 function WritingPage() {
+  const posts = getAllPosts();
+
+  if (posts.length === 0) {
+    return (
+      <div className="page-content">
+        <h1>Writing</h1>
+        <p style={{ color: 'var(--text-secondary)' }}>
+          No posts yet. Check back soon.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="page-content">
       <h1>Writing</h1>
-      <p style={{ color: 'var(--text-secondary)' }}>
-        No posts yet. Check back soon.
-      </p>
+      <ul className="post-list">
+        {posts.map((post) => (
+          <li key={post.slug} className="post-item">
+            <Link to={`/writing/${post.slug}`} className="post-link">
+              <span className="post-title">{post.title}</span>
+              <span className="post-meta">
+                {post.dateFormatted} · {post.readingTime} min read
+              </span>
+            </Link>
+            {post.description && (
+              <p className="post-description">{post.description}</p>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/* ── Post page ─────────────────────────────────────────── */
+
+function PostPage() {
+  const { slug } = useParams();
+  const post = getPostBySlug(slug);
+
+  if (!post) {
+    return (
+      <div className="page-content">
+        <h1>Post not found</h1>
+        <p>
+          <Link to="/writing">← Back to Writing</Link>
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="page-content with-sidebar">
+      <article className="main-content post-content">
+        <h1>{post.title}</h1>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {post.content}
+        </ReactMarkdown>
+      </article>
+
+      <aside className="sidebar post-sidebar">
+        <div className="sidebar-section">
+          <div className="sidebar-heading">Info</div>
+          <dl className="post-info">
+            <dt>Published</dt>
+            <dd>{post.dateFormatted}</dd>
+
+            <dt>Words</dt>
+            <dd>{post.words.toLocaleString()}</dd>
+
+            <dt>Reading time</dt>
+            <dd>{post.readingTime} min</dd>
+
+            <dt>Slug</dt>
+            <dd className="post-slug">{post.slug}</dd>
+          </dl>
+          {post.topics.length > 0 && (
+            <>
+              <div className="sidebar-heading" style={{ marginTop: '1.5rem' }}>
+                Topics
+              </div>
+              <ul className="post-topics">
+                {post.topics.map((topic) => (
+                  <li key={topic}>{topic}</li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+        <div className="sidebar-section" style={{ marginTop: '2rem' }}>
+          <Link to="/writing">← All posts</Link>
+        </div>
+      </aside>
     </div>
   );
 }
@@ -231,6 +323,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/writing" element={<WritingPage />} />
+          <Route path="/writing/:slug" element={<PostPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
         </Routes>
         <Footer theme={theme} onToggleTheme={toggle} />

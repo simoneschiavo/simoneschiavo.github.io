@@ -292,29 +292,142 @@ li {
 .post-list {
   list-style: none;
   padding: 0;
-  border-top: 2px solid var(--border-strong);
+  margin: 0;
 }
 
-.post-list li {
-  padding: 0.75rem 0;
+.post-item {
+  padding: 1.25rem 0;
   border-bottom: 1px solid var(--border);
 }
 
-.post-list a {
+.post-item:first-child {
+  padding-top: 0;
+}
+
+.post-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-decoration: none;
+}
+
+.post-title {
   font-weight: 700;
+  color: var(--text);
 }
 
-.post-date {
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  margin-left: 0.5rem;
+.post-link:hover .post-title {
+  color: var(--accent);
 }
 
-.post-summary {
-  display: block;
+.post-meta {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.post-description {
   color: var(--text-secondary);
   font-size: 0.85rem;
-  margin-top: 0.2rem;
+  margin: 0.5rem 0 0 0;
+}
+
+/* ── Post page ─────────────────────────────────────────── */
+.post-content h1 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.post-content h2 {
+  margin-top: 2rem;
+}
+
+.post-content h3 {
+  margin-top: 1.5rem;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--border-strong);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.post-content code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--code-bg);
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+}
+
+.post-content pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.post-content ul,
+.post-content ol {
+  margin: 1rem 0;
+}
+
+/* ── Post sidebar ──────────────────────────────────────── */
+.post-sidebar {
+  position: sticky;
+  top: 2rem;
+}
+
+.post-info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1rem;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.post-info dt {
+  color: var(--text-secondary);
+}
+
+.post-info dd {
+  margin: 0;
+}
+
+.post-slug {
+  word-break: break-all;
+  font-size: 0.75rem;
+}
+
+.post-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-topics li {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  margin: 0;
 }
 
 /* ── Responsive ────────────────────────────────────────── */
