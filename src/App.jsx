@@ -116,14 +116,12 @@ function HomePage() {
       <div className="main-content">
         <h1>Simone Schiavo</h1>
         <p>
-          Experiment-led Growth PM who helps B2B companies grow faster: from
-          signup flows to monetization and retention. I love cracking hard
-          problems and building iterative solutions.
+          Experienced Growth Product Manager helping companies grow faster. From signup flows to monetization and retention. I love cracking hard problems and building iterative solutions.
         </p>
 
         <div className="section-header">Currently</div>
         <ul>
-          <li>Working on product growth and experimentation @ Leadfeeder</li>
+          <li>Product Growth Team Lead @ Leadfeeder</li>
           <li>
             Writing about growth strategy and product-led growth (coming soon)
           </li>
@@ -133,16 +131,16 @@ function HomePage() {
         <div className="section-header">Previously</div>
         <ul>
           <li>
-            Growth &amp; Experimentation at{' '}
+            Growth Product Manager at{' '}
             <a
-              href="https://www.dealfront.com"
+              href="https://www.leadfeeder.com"
               target="_blank"
               rel="noreferrer"
             >
-              Dealfront
+              Leadfeeder
             </a>
           </li>
-          <li>Growth &amp; Automation at BIP Consulting</li>
+          <li>Growth Consultant at BIP Consulting</li>
           <li>
             Growth at{' '}
             <a href="https://www.soldo.com" target="_blank" rel="noreferrer">
